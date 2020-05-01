@@ -38,7 +38,7 @@ print(f'found {len(datafiles)} data files')
 data = {}
 
 for datafile in datafiles:
-    subcode = datafile.stem.split('_')[0]
+    subcode = datafile.stem.split('_')[1]
     data[subcode] = pd.read_csv(datafile, sep='\t')
 
 
@@ -75,6 +75,16 @@ for subcode in data:
     data[subcode].loc[:, 'isStopTaskTrial'] = ~data[subcode]['stimType'].isna()
     data[subcode].loc[:, 'SSD'] = data[subcode]['stopSignalOnset'].values - data[subcode]['goStimOnset'].values
     
+
+    # When RTs are > 1s, they are recorded in a different set of columns. RT is in key_resp_9.rt 
+    # and its accuracy is reflected in key_resp_9.corr. However, to get the appropriate rt value 
+    # in these instances, you need to add 1s to the value reflected in key_resp_9.rt
+    if 'key_resp_9.rt' in data[subcode]:
+        data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'goResp.rt'] =\
+            1 + data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'key_resp_9.rt']
+        data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'goResp.corr'] =\
+            1 + data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'key_resp_9.corr']
+
     # confirm correct trial numbers
     assert np.sum(data[subcode].trialType=='go') == num_go_trials
     assert np.sum(data[subcode].trialType=='stop') == num_stop_trials
@@ -84,6 +94,10 @@ for subcode in data:
 
     # compute go RT separately by stimType
     all_go_trials = stoptaskDf.query('trialType == "go"')
+
+
+       
+
     stoptask_results.loc[subcode, 'pCorrectGo_all'] = all_go_trials['goResp.corr'].mean()
     correct_go_trials = all_go_trials.loc[all_go_trials['goResp.corr']==1, :]
 
