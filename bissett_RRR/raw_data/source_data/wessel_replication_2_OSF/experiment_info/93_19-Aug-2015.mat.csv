@@ -1,0 +1,66 @@
+	LU	Nr	age	betting	buttons	commands	duration	gender	hand	layout	learning	p1	p2	p3	phase	reward	screen	stopping	symbols	training	which_info
+count		93	28					f	r						3						data
+RT												{'symbols': {'s6': 360.73145843605744, 's8': 352.0135776567622, 's5': 371.55676142425364, 's3': 368.4410663583185, 's2': 376.30788127338747, 's7': 374.222561786155, 's1': 363.8632407201658, 's4': 374.82081501657376}, 'all': 367.7446703339592, 'blocks': {'b4': 390.214131881512, 'b2': 370.3276892598842, 'b1': 337.7713921015493, 'b3': 372.6654680928914}}	{'cor': 636.3931916983133, 'symbols': {'s6': 516.955854763637, 's8': 665.760258213494, 's5': 691.7793865466391, 's3': 628.0920770216957, 's2': 670.5462147673542, 's7': 690.9026584433176, 's1': 622.6434808476774, 's4': 616.0169425593267}, 'failstop': 570.3644708967582, 'err': nan}								output
+errmissrate												1.5									output
+numbers													{'stop': {'succ': 60, 'fail': 48, 'all': 108}, 'all': 288, 'go': {'miss': 1, 'cor': 179, 'all': 180, 'err': 0}}								output
+rates													{'miss': 0.5555555555555556, 'stop': 37.5, 'err': 0, 'stopsucc': {'symbols': {'s6': 59.25925925925926, 's8': 51.851851851851855, 's5': 55.55555555555556, 's3': nan, 's2': nan, 's7': 55.55555555555556, 's1': nan, 's4': nan}, 'all': 55.55555555555556}}								output
+s1														{'amount': 151.6, 'level': 3.4, 'RT': 1.78906516398838, 'varlevel': 1.6, 'stop': 0}							output
+s2														{'amount': 160.8, 'level': 3.7, 'RT': 1.9877062295645374, 'varlevel': 2.2333333333333334, 'stop': 0}							output
+s3														{'amount': 144.2, 'level': 3.3, 'RT': 1.6951626515172393, 'varlevel': 2.011111111111111, 'stop': 0}							output
+s4														{'amount': 179.3, 'level': 4.2, 'RT': 2.1275864791236017, 'varlevel': 1.7333333333333338, 'stop': 0}							output
+s5														{'amount': 164.7, 'level': 3.8, 'RT': 1.729858912943928, 'varlevel': 0.8444444444444444, 'stop': 1}							output
+s6														{'amount': 173.6, 'level': 3.9, 'RT': 1.8678700961645518, 'varlevel': 1.2111111111111112, 'stop': 1}							output
+s7														{'amount': 109, 'level': 2.5, 'RT': 1.862618282582298, 'varlevel': 0.7222222222222222, 'stop': 1}							output
+s8														{'amount': 248.4, 'level': 5.6, 'RT': 1.4900312557409052, 'varlevel': 1.5999999999999999, 'stop': 1}							output
+ssrt													{'mSSD': 482.3511557886558, 'SSRT': 154.04203590965756}								output
+valuenostop														3.65							output
+valuestop														3.95							output
+SSD	25.6														3			250		0.0	settings
+SSDincrement	25.6														3			50		0.0	settings
+betdelay	25.6						1.5								3					0.0	settings
+betfix	25.6					DrawFormattedText(10,'+','center','center',[150  150  150]);									3					0.0	settings
+bets	25.6				[ 7  9 10 11 13 14]										3					0.0	settings
+betstim	25.6						5.0								3					0.0	settings
+bettrial	25.6						6.0								3					0.0	settings
+blocks	25.6			4							4				3			8		0.0	settings
+colors	25.6									"[[   0.   255.     0. ]
+ [   0.     0.   255. ]
+ [   0.   255.   255. ]
+ [ 255.     0.   255. ]
+ [ 255.   255.     0. ]
+ [ 255.   127.5    0. ]
+ [ 255.   255.   255. ]
+ [ 127.5  127.5  127.5]]"					3				[4 6 8 3 1 7 2 5]	0.0	settings
+distribution	25.6										uniform				3					0.0	settings
+fix	25.6					Screen('DrawLine',10,[150  150  150],320,540,1600,540,2);Screen('DrawLine',10,[150  150  150],960,180,960,900,2);	0.5								3					0.0	settings
+fixcolor	25.6									[150 150 150]					3					0.0	settings
+introsize	25.6									40					3					0.0	settings
+layout	25.6														3				[1 4 5 3 2 7 8 6]	0.0	settings
+learning	25.6														3	768.0				0.0	settings
+learnstim	25.6						1.0								3					0.0	settings
+learntrial	25.6						3.0								3					0.0	settings
+left	25.6				6										3					0.0	settings
+levels	25.6			5											3					0.0	settings
+magnitudes	25.6										[ 50 100 200 400]				3					0.0	settings
+ne	25.6				54										3					0.0	settings
+nw	25.6				27										3					0.0	settings
+ow	25.6														3		10			0.0	settings
+owd	25.6														3		[   0    0 1920 1080]			0.0	settings
+parameter	25.6										25				3					0.0	settings
+pointsize	25.6									80					3					0.0	settings
+prob	25.6														3			[ 0.    0.75]		0.0	settings
+redcolor	25.6									[255   0   0]					3					0.0	settings
+reward	25.6						1.0								3					0.0	settings
+right	25.6				16										3					0.0	settings
+scalingfactor	25.6			5											3					0.0	settings
+se	25.6				231										3					0.0	settings
+start	25.6			30											3					0.0	settings
+stepsize	25.6			6											3					0.0	settings
+stop	25.6					PsychPortAudio('Start', 0, 1, 0, 1);									3					0.0	settings
+stopfix	25.6					Screen('DrawLine',10,[150  150  150],960,180,960,900,2);									3					0.0	settings
+stopstim	25.6						1.5								3					0.0	settings
+stoptrial	25.6						3.0								3					0.0	settings
+sw	25.6				227										3					0.0	settings
+trials	25.6			10							40				3			36		0.0	settings
+type	25.6			6keys											3					0.0	settings
+zerotrials	25.6										10				3					0.0	settings
