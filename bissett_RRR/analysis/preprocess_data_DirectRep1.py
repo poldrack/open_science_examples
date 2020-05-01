@@ -26,9 +26,9 @@ from get_SSRT import get_SSRT
 # +
 # get the data files
 
-basedir = Path('/Users/poldrack/Dropbox/code/open_science_docuthon/bissett_RRR')
-datadir = basedir / 'raw_data/wessel_replication_1_OSF'
-datafiles = [i for i in datadir.glob('*.csv')]
+raw_datadir = Path('../raw_data/study-1')
+processed_datadir = Path('../processed_data')
+datafiles = [i for i in raw_datadir.glob('*.tsv')]
 assert len(datafiles) > 0
 print(f'found {len(datafiles)} data files')
 
@@ -39,7 +39,7 @@ data = {}
 
 for datafile in datafiles:
     subcode = datafile.stem.split('_')[0]
-    data[subcode] = pd.read_csv(datafile)
+    data[subcode] = pd.read_csv(datafile, sep='\t')
 
 
 
@@ -139,7 +139,7 @@ stoptask_results.rename(columns={'pCorrectGoResp': 'pCorrectGo_stopStim',
 del stoptask_results['stopFailRT']
 del stoptask_results['meanGoRT']
 
-stoptask_results.to_csv(basedir / 'processed_data/wessel_replication_1_stoptask.csv')
+stoptask_results.to_csv(processed_datadir / 'study-1_task-stop_data.tsv', sep='\t')
 
 # the go results from 
 # +
@@ -158,5 +158,5 @@ for subcode in data:
         auctiondata = pd.concat((auctiondata, tmpdata))
 # -
 
-auctiondata.to_csv(basedir / 'processed_data/wessel_replication_1_auction.csv')
+auctiondata.to_csv(processed_datadir / 'study-1_task-auction_data.tsv', sep='\t')
 
