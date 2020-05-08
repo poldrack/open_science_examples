@@ -56,3 +56,6 @@ shell: guard-DOCKER_USERNAME
 
 jupyter: guard-DOCKER_USERNAME
 	docker run -it -p 9994:9994 --entrypoint /opt/conda/bin/jupyter -v $(current_dir)/..:/analysis $(DOCKER_USERNAME)/jupyter-python-r lab --ip=0.0.0.0 --port=9994 --allow-root
+
+singularity-shell:
+	PYTHONPATH="" singularity shell --cleanenv docker://poldrack/jupyter-python-r
