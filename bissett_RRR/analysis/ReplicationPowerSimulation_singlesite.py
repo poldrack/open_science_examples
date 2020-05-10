@@ -72,7 +72,6 @@ CombinedExclusiveAuctionANOVA = ezANOVA(
   , dv = chosenAuctionAmount
   , wid = subcode_unique
   , within = .(auctionStimValue,auctionCondition)
-  , between = site
   , detailed = TRUE
 )
 }
@@ -165,7 +164,7 @@ for i in range(nruns):
     sm1_coefs = lmerTest.get_coefmat(sm1)
     results_sim.loc[i, 'int_pval'] = sm1_coefs[3,4]
     results_sim.loc[i, 'cohensd_int'] = EMAtools.lme_dscore(
-        sm1, simDf1, 'lme4').loc['auctionStimValue:auctionCondition1', 'd']
+        sm1, simDf1, 'lme4').loc['auctionStimValue:auctionConditionstop', 'd']
     results_sim.loc[i, 'int_param'] = int_param
     results_sim_full[i]['lmer_full'] = {'coefs': sm1_coefs,
                                         'summary': lmerTest.summary_merModLmerTest(sm1)}
