@@ -106,7 +106,7 @@ formula_summary = """chosenAuctionAmount ~
               (1 |subcode_unique)"""
 
 n = 79  # N determined by previous power analysis
-seed = 1
+seed = None
 if testmode:
     nruns=1
 else:
@@ -115,8 +115,8 @@ else:
 # since we can't specify a standardized effect size, we randomly select
 # the interaction parameter from within this range (based on pilot simulations)
 # and then compute the observed cohen's D for the analysis
-int_param_max = 3.5
-int_param_min = 1
+int_param_max = 5 #3.5
+int_param_min = 1 #1
 
 # store full results to a dictionary
 results_sim_full = {}
@@ -134,7 +134,7 @@ et = []
 rng = np.random.RandomState(seed)
 
 # not sure if this actually works for fabricatr
-r('set.seed(1)')
+#r('set.seed(1)')
 
 
 for i in range(nruns):
