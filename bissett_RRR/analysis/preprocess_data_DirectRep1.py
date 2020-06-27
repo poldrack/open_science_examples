@@ -42,7 +42,6 @@ for datafile in datafiles:
     data[subcode] = pd.read_csv(datafile, sep='\t')
 
 
-
 # +
 # extract stop task data
 #
@@ -53,12 +52,12 @@ subcodes = [k for k in data.keys()]
 subcodes.sort()
 
 stoptask_results = pd.DataFrame({
-    'goRt_stopStim':np.zeros(nsubs)*np.nan,
-    'goRt_goStim': np.zeros(nsubs)*np.nan,
-    'SSRT': np.zeros(nsubs)*np.nan,
-    'signalRespondRT': np.zeros(nsubs)*np.nan,
-    'pSignalRespond': np.zeros(nsubs)*np.nan,
-    'pCorrectGo_all': np.zeros(nsubs)*np.nan,
+    'goRt_stopStim': np.zeros(nsubs) * np.nan,
+    'goRt_goStim': np.zeros(nsubs) * np.nan,
+    'SSRT': np.zeros(nsubs) * np.nan,
+    'signalRespondRT': np.zeros(nsubs) * np.nan,
+    'pSignalRespond': np.zeros(nsubs) * np.nan,
+    'pCorrectGo_all': np.zeros(nsubs) * np.nan,
 }, index=subcodes)
 
 num_stop_trials = 108
@@ -74,10 +73,9 @@ for subcode in data:
     # find stop task trials
     data[subcode].loc[:, 'isStopTaskTrial'] = ~data[subcode]['stimType'].isna()
     data[subcode].loc[:, 'SSD'] = data[subcode]['stopSignalOnset'].values - data[subcode]['goStimOnset'].values
-    
 
-    # When RTs are > 1s, they are recorded in a different set of columns. RT is in key_resp_9.rt 
-    # and its accuracy is reflected in key_resp_9.corr. However, to get the appropriate rt value 
+    # When RTs are > 1s, they are recorded in a different set of columns. RT is in key_resp_9.rt
+    # and its accuracy is reflected in key_resp_9.corr. However, to get the appropriate rt value
     # in these instances, you need to add 1s to the value reflected in key_resp_9.rt
     if 'key_resp_9.rt' in data[subcode]:
         data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'goResp.rt'] =\
@@ -86,8 +84,8 @@ for subcode in data:
             1 + data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'key_resp_9.corr']
 
     # confirm correct trial numbers
-    assert np.sum(data[subcode].trialType=='go') == num_go_trials
-    assert np.sum(data[subcode].trialType=='stop') == num_stop_trials
+    assert np.sum(data[subcode].trialType == 'go') == num_go_trials
+    assert np.sum(data[subcode].trialType == 'stop') == num_stop_trials
 
     # create a temporary df to hold stop task data
     stoptaskDf = data[subcode].query('isStopTaskTrial == True')
@@ -95,25 +93,22 @@ for subcode in data:
     # compute go RT separately by stimType
     all_go_trials = stoptaskDf.query('trialType == "go"')
 
-
-       
-
     stoptask_results.loc[subcode, 'pCorrectGo_all'] = all_go_trials['goResp.corr'].mean()
-    correct_go_trials = all_go_trials.loc[all_go_trials['goResp.corr']==1, :]
+    correct_go_trials = all_go_trials.loc[all_go_trials['goResp.corr'] == 1, :]
 
-    # Go RT Stop shapes: same as Go RT except also ensure that “stimType” = stop. 
+    # Go RT Stop shapes: same as Go RT except also ensure that “stimType” = stop.
     stoptask_results.loc[subcode, 'goRt_stopStim'] = correct_go_trials.query('stimType == "stop"')['goResp.rt'].mean()
 
-    # Go RT Non-Stop shapes: same as Go RT except also ensure that “stimType” = go. 
+    # Go RT Non-Stop shapes: same as Go RT except also ensure that “stimType” = go.
     stoptask_results.loc[subcode, 'goRt_goStim'] = correct_go_trials.query('stimType == "go"')['goResp.rt'].mean()
 
-    # Stop-Failure RT: Do not include the practice trials but only the main task trials, as in Go RT. Then find the mean of goResp.RT only on trials in which goResp.RT is not an empty cell (i.e., only stop-failures) when “trialType” = stop. 
+    # Stop-Failure RT: Do not include the practice trials but only the main task trials, as in Go RT. Then find the mean of goResp.RT only on trials in which goResp.RT is not an empty cell (i.e., only stop-failures) when “trialType” = stop.
     stoptask_results.loc[subcode, 'stopFailRT'] = stoptaskDf.query('trialType == "stop"')['goResp.rt'].dropna().mean()
 
     # P(resp|signal) = Again only include main task trials. Then filter for only “trialType” = stop. Then compute the proportion of trials that have a reaction time of any length in goResp.rt
     stoptask_results.loc[subcode, 'pRespSignal'] = 1 - stoptaskDf.query('trialType == "stop"')['goResp.rt'].isna().mean()
 
-    # SSRT: This is traditional integration SSRT with two important exceptions. First, omission trials are not included in the underlying go RT distribution and the probability of responding is corrected with the assumption that omissions occur at the same rate on go and stop trials. Verbruggen et al., 2019 argued that SSRT with replacement is a better correction method. I plan to use the new SSRT with replacement on the new data. I could correct the old data too.  Second, I use go RTs from go trials in which the stimulus was associated with stopping. I did this because these tended to slower than go trials in which the stimulus was not associated with stopping, so I believe the former is a better approximation of the underlying go distribution on stop trials. I will share the original Matlab script that did this calculation and the text file inputs to that code. It should be pretty straightforward, but happy to unpack if necessary. In brief, to recreate, you would need the overall probability of responding given a stop signal for each subject (see the previous row of the graph), a rank ordered list of all 36 go trials for stimuli associated with stop (i.e., “trialType” = go and “stimType” = stop), and the mean SSD (mean of “beginningSSD” column on all main task stop trials, i.e., whenever “trialType” = stop). Then integrate up to the Nth percentile of the go RT distribution where N is the probability of a stop signal. However, mind the omission correction on lines 33-37 and 39-43. 
+    # SSRT: This is traditional integration SSRT with two important exceptions. First, omission trials are not included in the underlying go RT distribution and the probability of responding is corrected with the assumption that omissions occur at the same rate on go and stop trials. Verbruggen et al., 2019 argued that SSRT with replacement is a better correction method. I plan to use the new SSRT with replacement on the new data. I could correct the old data too.  Second, I use go RTs from go trials in which the stimulus was associated with stopping. I did this because these tended to slower than go trials in which the stimulus was not associated with stopping, so I believe the former is a better approximation of the underlying go distribution on stop trials. I will share the original Matlab script that did this calculation and the text file inputs to that code. It should be pretty straightforward, but happy to unpack if necessary. In brief, to recreate, you would need the overall probability of responding given a stop signal for each subject (see the previous row of the graph), a rank ordered list of all 36 go trials for stimuli associated with stop (i.e., “trialType” = go and “stimType” = stop), and the mean SSD (mean of “beginningSSD” column on all main task stop trials, i.e., whenever “trialType” = stop). Then integrate up to the Nth percentile of the go RT distribution where N is the probability of a stop signal. However, mind the omission correction on lines 33-37 and 39-43.
 
     # drop go RT trials with stimtype == 'go'
     indexNames = stoptaskDf[(stoptaskDf['trialType'] == 'go') & (stoptaskDf['stimType'] == 'go')].index
@@ -139,7 +134,7 @@ del stoptask_results['n_go_trials']
 assert np.allclose(stoptask_results.signalRespondRT, stoptask_results.stopFailRT)
 
 # these actually mismatch due to omission correction
-#assert np.allclose(stoptask_results.pSignalRespond, stoptask_results.pRespSignal)
+# assert np.allclose(stoptask_results.pSignalRespond, stoptask_results.pRespSignal)
 
 # the analysis from get_SSRT only included go trials from the stop stim condition
 assert np.allclose(stoptask_results.goRt_stopStim, stoptask_results.meanGoRT)
@@ -153,18 +148,20 @@ stoptask_results.rename(columns={'pCorrectGoResp': 'pCorrectGo_stopStim',
 del stoptask_results['stopFailRT']
 del stoptask_results['meanGoRT']
 
+# move subcode from index to separate column
+stoptask_results = stoptask_results.reset_index().rename(columns={'index': 'subcode'})
 stoptask_results.to_csv(processed_datadir / 'study-1_task-stop_data.tsv', sep='\t')
 
-# the go results from 
+# the go results from
 # +
 # extract auction phase data for each subject
 
 auctiondata = None
 for subcode in data:
-    
+
     tmpdata = data[subcode].loc[~data[subcode].auctionCondition.isna(),
-                                    ['auctionStimValue', 'auctionCondition',
-                                     'chosenAuctionAmount']]
+                                ['auctionStimValue', 'auctionCondition',
+                                'chosenAuctionAmount']]
     tmpdata['subcode'] = subcode
     if auctiondata is None:
         auctiondata = tmpdata
@@ -173,4 +170,3 @@ for subcode in data:
 # -
 
 auctiondata.to_csv(processed_datadir / 'study-1_task-auction_data.tsv', sep='\t')
-
