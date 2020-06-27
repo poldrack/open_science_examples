@@ -1,95 +1,96 @@
-# ---
-# jupyter:
-#   jupytext:
-#     text_representation:
-#       extension: .py
-#       format_name: light
-#       format_version: '1.5'
-#       jupytext_version: 1.4.2
-#   kernelspec:
-#     display_name: Python 3
-#     language: python
-#     name: python3
-# ---
-
-# # Preprocess auction data for Direct Replication 1
+"""
+extract and prepare stopping and auction data
+"""
 
 import pandas as pd
 import numpy as np
 from pathlib import Path
 from get_SSRT import get_SSRT
 
-# ## Preprocess data
-#
-# - load data and extract auction data
 
-# +
-# get the data files
-
-raw_datadir = Path('../raw_data/study-1')
-processed_datadir = Path('../processed_data')
-datafiles = [i for i in raw_datadir.glob('*.tsv')]
-assert len(datafiles) > 0
-print(f'found {len(datafiles)} data files')
-
-# +
-# load data for each subject into a dictionary
-
-data = {}
-
-for datafile in datafiles:
-    subcode = datafile.stem.split('_')[1]
-    data[subcode] = pd.read_csv(datafile, sep='\t')
-
-
-# +
-# extract stop task data
-#
-# Go RT: do not include the practice trials (which are in rows ~13-22) but only the main task trials (which are in rows ~429-716). Then find the mean RT of all go trials by averaging goResp.rt on trials in which “trialType” = go and goResp.corr = 1
-
-nsubs = len(data)
-subcodes = [k for k in data.keys()]
-subcodes.sort()
-
-stoptask_results = pd.DataFrame({
-    'goRt_stopStim': np.zeros(nsubs) * np.nan,
-    'goRt_goStim': np.zeros(nsubs) * np.nan,
-    'SSRT': np.zeros(nsubs) * np.nan,
-    'signalRespondRT': np.zeros(nsubs) * np.nan,
-    'pSignalRespond': np.zeros(nsubs) * np.nan,
-    'pCorrectGo_all': np.zeros(nsubs) * np.nan,
-}, index=subcodes)
-
+# these are included here for testing
 num_stop_trials = 108
 num_go_trials = 180
 
-for subcode in data:
-    # filter out practice trials
-    data[subcode]['isPracticeTrial'] = 0
-    data[subcode].loc[~data[subcode]['pracTrials.thisRepN'].isna(), 'isPracticeTrial'] = 1
-    data[subcode].loc[~data[subcode]['pracStopTrials.thisRepN'].isna(), 'isPracticeTrial'] = 1
-    data[subcode] = data[subcode].query('isPracticeTrial == 0')
 
-    # find stop task trials
-    data[subcode].loc[:, 'isStopTaskTrial'] = ~data[subcode]['stimType'].isna()
-    data[subcode].loc[:, 'SSD'] = data[subcode]['stopSignalOnset'].values - data[subcode]['goStimOnset'].values
+def find_datafiles(raw_datadir, processed_datadir):
+    datafiles = [i for i in raw_datadir.glob('*.tsv')]
+    assert len(datafiles) > 0
+    print(f'found {len(datafiles)} data files')
+    return(datafiles)
+
+
+def load_data(datafiles):
+    data = {}
+
+    for datafile in datafiles:
+        subcode = datafile.stem.split('_')[1]
+        data[subcode] = pd.read_csv(datafile, sep='\t')
+    return(data)
+
+
+def extract_auctiondata(data):
+    auctiondata = None
+    for subcode in data:
+
+        tmpdata = data[subcode].loc[~data[subcode].auctionCondition.isna(),
+                                    ['auctionStimValue', 'auctionCondition',
+                                    'chosenAuctionAmount']]
+        tmpdata['subcode'] = subcode
+        if auctiondata is None:
+            auctiondata = tmpdata
+        else:
+            auctiondata = pd.concat((auctiondata, tmpdata))
+    return(auctiondata)
+
+
+def remove_practice_trials(subdata):
+    subdata['isPracticeTrial'] = 0
+    subdata.loc[~subdata['pracTrials.thisRepN'].isna(), 'isPracticeTrial'] = 1
+    subdata.loc[~subdata['pracStopTrials.thisRepN'].isna(), 'isPracticeTrial'] = 1
+    subdata = subdata.query('isPracticeTrial == 0')
+    return(subdata)
+
+
+def initialize_stoptask_results(datadict):
+    nsubs = len(datadict)
+    subcodes = [k for k in datadict.keys()]
+    subcodes.sort()
+
+    return(pd.DataFrame({
+        'goRt_stopStim': np.zeros(nsubs) * np.nan,
+        'goRt_goStim': np.zeros(nsubs) * np.nan,
+        'SSRT': np.zeros(nsubs) * np.nan,
+        'signalRespondRT': np.zeros(nsubs) * np.nan,
+        'pSignalRespond': np.zeros(nsubs) * np.nan,
+        'pCorrectGo_all': np.zeros(nsubs) * np.nan,
+    }, index=subcodes))
+
+
+def find_stop_trials(subdata):
+    subdata.loc[:, 'isStopTaskTrial'] = ~subdata['stimType'].isna()
+    subdata.loc[:, 'SSD'] = subdata['stopSignalOnset'].values - subdata['goStimOnset'].values
 
     # When RTs are > 1s, they are recorded in a different set of columns. RT is in key_resp_9.rt
     # and its accuracy is reflected in key_resp_9.corr. However, to get the appropriate rt value
     # in these instances, you need to add 1s to the value reflected in key_resp_9.rt
-    if 'key_resp_9.rt' in data[subcode]:
-        data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'goResp.rt'] =\
-            1 + data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'key_resp_9.rt']
-        data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'goResp.corr'] =\
-            1 + data[subcode].loc[~data[subcode]['key_resp_9.rt'].isna(), 'key_resp_9.corr']
+    if 'key_resp_9.rt' in subdata:
+        subdata.loc[~subdata['key_resp_9.rt'].isna(), 'goResp.rt'] =\
+            1 + subdata.loc[~subdata['key_resp_9.rt'].isna(), 'key_resp_9.rt']
+        subdata.loc[~subdata['key_resp_9.rt'].isna(), 'goResp.corr'] =\
+            1 + subdata.loc[~subdata['key_resp_9.rt'].isna(), 'key_resp_9.corr']
+    subdata.loc[subdata['goResp.corr'] > 1, 'goResp.corr'] = 1
+    stoptaskDf = subdata.query('isStopTaskTrial == True')
 
-    # confirm correct trial numbers
-    assert np.sum(data[subcode].trialType == 'go') == num_go_trials
-    assert np.sum(data[subcode].trialType == 'stop') == num_stop_trials
+    return(subdata, stoptaskDf)
 
-    # create a temporary df to hold stop task data
-    stoptaskDf = data[subcode].query('isStopTaskTrial == True')
 
+def check_trial_numbers(subdata, num_stop_trials=108, num_go_trials=180):
+    assert np.sum(subdata.trialType == 'go') == num_go_trials
+    assert np.sum(subdata.trialType == 'stop') == num_stop_trials
+
+
+def analyze_go_trials(subcode, stoptaskDf, stoptask_results):
     # compute go RT separately by stimType
     all_go_trials = stoptaskDf.query('trialType == "go"')
 
@@ -107,7 +108,10 @@ for subcode in data:
 
     # P(resp|signal) = Again only include main task trials. Then filter for only “trialType” = stop. Then compute the proportion of trials that have a reaction time of any length in goResp.rt
     stoptask_results.loc[subcode, 'pRespSignal'] = 1 - stoptaskDf.query('trialType == "stop"')['goResp.rt'].isna().mean()
+    return(stoptask_results)
 
+
+def estimate_SSRT(subcode, stoptaskDf, stoptask_results):
     # SSRT: This is traditional integration SSRT with two important exceptions. First, omission trials are not included in the underlying go RT distribution and the probability of responding is corrected with the assumption that omissions occur at the same rate on go and stop trials. Verbruggen et al., 2019 argued that SSRT with replacement is a better correction method. I plan to use the new SSRT with replacement on the new data. I could correct the old data too.  Second, I use go RTs from go trials in which the stimulus was associated with stopping. I did this because these tended to slower than go trials in which the stimulus was not associated with stopping, so I believe the former is a better approximation of the underlying go distribution on stop trials. I will share the original Matlab script that did this calculation and the text file inputs to that code. It should be pretty straightforward, but happy to unpack if necessary. In brief, to recreate, you would need the overall probability of responding given a stop signal for each subject (see the previous row of the graph), a rank ordered list of all 36 go trials for stimuli associated with stop (i.e., “trialType” = go and “stimType” = stop), and the mean SSD (mean of “beginningSSD” column on all main task stop trials, i.e., whenever “trialType” = stop). Then integrate up to the Nth percentile of the go RT distribution where N is the probability of a stop signal. However, mind the omission correction on lines 33-37 and 39-43.
 
     # drop go RT trials with stimtype == 'go'
@@ -124,49 +128,73 @@ for subcode in data:
     ssrt_results = get_SSRT(estimationDf, omissionRT=None)
     for i in ssrt_results.index:
         stoptask_results.loc[subcode, i] = ssrt_results[i]
+    return(stoptask_results)
 
-# check for correct trial nums
-assert np.all(stoptask_results.n_stop_trials == num_stop_trials)
-del stoptask_results['n_stop_trials']
-del stoptask_results['n_go_trials']
 
-# for the variables computed in two places, confirm they are equal
-assert np.allclose(stoptask_results.signalRespondRT, stoptask_results.stopFailRT)
+def check_stoptask_results(stoptask_results, num_stop_trials=108):
+    # check for correct trial nums
+    assert np.all(stoptask_results.n_stop_trials == num_stop_trials)
 
-# these actually mismatch due to omission correction
-# assert np.allclose(stoptask_results.pSignalRespond, stoptask_results.pRespSignal)
+    # for the variables computed in two places, confirm they are equal
+    assert np.allclose(stoptask_results.signalRespondRT, stoptask_results.stopFailRT)
 
-# the analysis from get_SSRT only included go trials from the stop stim condition
-assert np.allclose(stoptask_results.goRt_stopStim, stoptask_results.meanGoRT)
+    # the analysis from get_SSRT only included go trials from the stop stim condition
+    assert np.allclose(stoptask_results.goRt_stopStim, stoptask_results.meanGoRT)
 
-# rename variables from get_SSRT to be clearer about what they mean
-stoptask_results.rename(columns={'pCorrectGoResp': 'pCorrectGo_stopStim',
-                                 'pRespSignal': 'pSignalRespond_omissionCorrected'},
-                        inplace=True)
+    assert np.all(stoptask_results.pCorrectGo_all <= 1.)
 
-# clean up unnecessary variables
-del stoptask_results['stopFailRT']
-del stoptask_results['meanGoRT']
 
-# move subcode from index to separate column
-stoptask_results = stoptask_results.reset_index().rename(columns={'index': 'subcode'})
-stoptask_results.to_csv(processed_datadir / 'study-1_task-stop_data.tsv', sep='\t')
+def cleanup_stoptask_results(stoptask_results):
+    del stoptask_results['n_stop_trials']
+    del stoptask_results['n_go_trials']
+    # rename variables from get_SSRT to be clearer about what they mean
+    stoptask_results.rename(columns={'pCorrectGoResp': 'pCorrectGo_stopStim',
+                                     'pRespSignal': 'pSignalRespond_omissionCorrected'},
+                            inplace=True)
 
-# the go results from
-# +
-# extract auction phase data for each subject
+    # clean up unnecessary variables
+    del stoptask_results['stopFailRT']
+    del stoptask_results['meanGoRT']
 
-auctiondata = None
-for subcode in data:
+    # move subcode from index to separate column
+    stoptask_results = stoptask_results.reset_index().rename(columns={'index': 'subcode'})
+    return(stoptask_results)
 
-    tmpdata = data[subcode].loc[~data[subcode].auctionCondition.isna(),
-                                ['auctionStimValue', 'auctionCondition',
-                                'chosenAuctionAmount']]
-    tmpdata['subcode'] = subcode
-    if auctiondata is None:
-        auctiondata = tmpdata
-    else:
-        auctiondata = pd.concat((auctiondata, tmpdata))
-# -
 
-auctiondata.to_csv(processed_datadir / 'study-1_task-auction_data.tsv', sep='\t')
+def get_stoptask_results(data):
+    stoptask_results = initialize_stoptask_results(data)
+
+    for subcode in data:
+        data[subcode] = remove_practice_trials(data[subcode])
+
+        data[subcode], stoptaskDf = find_stop_trials(data[subcode])
+
+        check_trial_numbers(data[subcode])
+
+        stoptask_results = analyze_go_trials(subcode, stoptaskDf, stoptask_results)
+
+        stoptask_results = estimate_SSRT(subcode, stoptaskDf, stoptask_results)
+
+    check_stoptask_results(stoptask_results)
+
+    stoptask_results = cleanup_stoptask_results(stoptask_results)
+
+    return(stoptask_results)
+
+
+if __name__ == '__main__':
+
+    raw_datadir = Path('../raw_data/study-1')
+    processed_datadir = Path('../processed_data')
+
+    datafiles = find_datafiles(raw_datadir, processed_datadir)
+
+    data = load_data(datafiles)
+
+    stoptask_results = get_stoptask_results(data)
+
+    stoptask_results.to_csv(processed_datadir / 'study-1_task-stop_data.tsv', sep='\t')
+
+    auctiondata = extract_auctiondata(data)
+
+    auctiondata.to_csv(processed_datadir / 'study-1_task-auction_data.tsv', sep='\t')
