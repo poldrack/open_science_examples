@@ -116,7 +116,7 @@ def get_SSRT(df, omissionRT=2.0, verbose=False):
     results['omissionRate'] = np.mean(goTrialDf.goRT.isna())
 
     # correct for omission rate
-    results['pSignalRespond'] = stopTrialDf.signalRespond.mean()/(1 - results['omissionRate'])
+    results['pSignalRespond'] = stopTrialDf.signalRespond.mean() / (1 - results['omissionRate'])
 
     results['signalRespondRT'] = stopTrialDf.query('signalRespond == 1').goRT.dropna().mean()
 
