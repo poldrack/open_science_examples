@@ -8,33 +8,47 @@ study-1/
 """
 
 
-from pathlib import Path
+from pathlib import Path, PosixPath
 import pandas as pd
-
-basedir = Path('..')
-rawdir = basedir / 'raw_data'
-sourcedir = rawdir / 'source_data/wessel_replication_1_OSF'
-assert sourcedir.exists()
-
-outdir = rawdir / 'study-1'
-if not outdir.exists():
-    outdir.mkdir()
-
-logdir = Path('logs')
-if not logdir.exists():
-    logdir.mkdir()
+from utils import get_command_line_arguments
 
 
-# get data files
+def get_directories(args):
+    if type(args.basedir) != PosixPath:
+        args.basedir = Path(args.basedir)
+    assert args.basedir.exists()
 
-datafiles = [i for i in sourcedir.glob('*.csv')]
+    setattr(args, 'rawdir', args.basedir / 'raw_data')
+    setattr(args, 'sourcedir', args.rawdir / 'source_data/wessel_replication_1_OSF')
+    assert args.sourcedir.exists()
 
-# get new filename/paths for each data file
+    setattr(args, 'outdir', args.rawdir / 'study-1')
+    if not args.outdir.exists():
+        args.outdir.mkdir()
 
-rename_dict = {}
+    setattr(args, 'logdir', args.basedir / 'logs')
+    if not args.logdir.exists():
+        args.logdir.mkdir()
+    return(args)
 
-for d in datafiles:
-    data = pd.read_csv(d)
-    subcode = d.stem.split('_')[0]
-    outfile = outdir / ('study-1_sub-%s_data.tsv' % subcode)
-    data.to_csv(outfile, sep='\t')
+
+def get_datafiles(args):
+    setattr(args, 'datafiles', [i for i in args.sourcedir.glob('*.csv')])
+    return(args)
+
+
+def load_and_resave_datafiles(args):
+
+    for d in args.datafiles:
+        data = pd.read_csv(d)
+        subcode = d.stem.split('_')[0]
+        outfile = args.outdir / ('study-1_sub-%s_data.tsv' % subcode)
+        data.to_csv(outfile, sep='\t')
+
+
+if __name__ == "__main__":
+
+    args = get_command_line_arguments()
+    args = get_directories(args)
+    args = get_datafiles(args)
+    load_and_resave_datafiles(args)
