@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from get_SSRT import get_SSRT
+from utils import get_command_line_arguments
 
 
 # these are included here for testing
@@ -183,9 +184,10 @@ def get_stoptask_results(data):
 
 
 if __name__ == '__main__':
+    args = get_command_line_arguments()
 
-    raw_datadir = Path('../raw_data/study-1')
-    processed_datadir = Path('../processed_data')
+    raw_datadir = Path(args.basedir) / Path('raw_data/study-1')
+    processed_datadir = Path(args.basedir) / Path('processed_data')
 
     datafiles = find_datafiles(raw_datadir, processed_datadir)
 
