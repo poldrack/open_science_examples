@@ -9,7 +9,7 @@ Original source data (downloaded from https://osf.io/x38aj/files/) are located i
 
 These are converted to a format similar to [Psych-DS](https://psych-ds.github.io/) using ```analysis/organize_data_study-1.py```.
 
-The resulting reorganized data are located in raw_data/study-1, with a separate tab-separated value (.tsv) file for each subject.
+The resulting reorganized data are located in ```raw_data/study-1```, with a separate tab-separated value (.tsv) file for each subject.
 
 ### Preprocessing
 
@@ -33,4 +33,6 @@ In order to ensure exact reproducibility of the analyses, we have implemented a 
 
 ### Software tests
 
-We have included a test for the ```get_SSRT()``` function, which is used to compute stop-signal reaction time.  This test repeatedly generates data with a known SSRT value, and then assesses the accuracy of the function's estimates.  The test succeeds if the estimated SSRT values are correlated > 0.98 with the values used to generate the data.
+We have included a test for the ```get_SSRT()``` function, which is used to compute stop-signal reaction time.  This test repeatedly generates data with a known SSRT value, and then assesses the accuracy of the function's estimates.  The test succeeds if the estimated SSRT values are correlated > 0.98 with the values used to generate the data.  The code that implements this test can be found at ```analysis/test_SSRT.py```.
+
+To run the test, use the following command: ```make run-test```

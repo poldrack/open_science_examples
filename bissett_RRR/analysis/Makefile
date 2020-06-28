@@ -47,6 +47,9 @@ run-preprocess:
 run-stats: guard-DOCKER_USERNAME
 	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example jupyter nbconvert --to html --execute analysis/ReplicationAnalyses.ipynb
 
+run-test:
+	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example pytest /analysis/analysis
+
 
 # commands for building and testing docker image
 
