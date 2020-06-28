@@ -11,10 +11,14 @@ use_checkpoint = TRUE
 
 if (use_checkpoint) {
   library(checkpoint)
-  checkpointDir <- '/checkpoint'
-  checkpoint("2020-06-26", checkpointLocation = checkpointDir)
+  checkpoint("2020-06-26"), checkpointLocation = checkpointDir)
 }
 
+# these are needed for knitting the notebook
+library(knitr)
+library(rmarkdown)
+
+# these are used for analysis
 library(tidyverse)
 library(lme4)
 library(lmerTest)
@@ -23,26 +27,11 @@ library(lmerTest)
 Load data
 
 ```{r}
-rep1Df = read_csv('../processed_data/wessel_replication_1.csv', )
-rep1Df['X1'] = NULL
-rep1Df = rep1Df %>% 
+repDf = read_csv('../processed_data/study-1_task-auction_data.tsv', sep='\t')
+repDf['X1'] = NULL
+repDf = rep1Df %>% 
   mutate(studyNum = 1,
          stimValueFactor = as.factor(auctionStimValue))
-rep2Df = read_csv('../processed_data/wessel_replication_2.csv')
-rep2Df['X1'] = NULL
-rep2Df = rep2Df %>% 
-  mutate(studyNum = 2,
-         auctionStimValue = recode(auctionStimValue,
-                                   `5`=1, 
-                                   `6`=2,
-                                   `7`=3,
-                                   `8`=4),
-         stimValueFactor = as.factor(auctionStimValue),
-         auctionCondition = recode(auctionCondition,
-                                   `0`='go',
-                                   `1`='stop'))
-
-repDf = rbind(rep1Df, rep2Df)
 
 ```
 

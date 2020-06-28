@@ -56,6 +56,8 @@ rep1Df = rep1Df %>%
    mutate(stimValueFactor = as.factor(auctionStimValue))
 """)
 rep1Df = r['rep1Df']
+rep1Df['stop'] = (rep1Df.auctionCondition == 'stop').astype(int)
+rep1Df['go'] = (rep1Df.auctionCondition == 'go').astype(int)     
 # +
 # function to run ezANOVA on the summary data
 
@@ -90,8 +92,8 @@ testmode = True
 
 # full mixed model with random intercept and interaction slope
 formula = """chosenAuctionAmount ~ 
-              auctionStimValue*auctionCondition + 
-              (1 + auctionStimValue*auctionCondition|subcode_unique)"""
+              stop + go + auctionStimValue:stop + auctionStimValue:go - 1 + 
+              (stop + go + auctionStimValue -1  |subcode_unique)"""
 
 # formula for random intercept model on summary data
 formula_summary = """chosenAuctionAmount ~ 
