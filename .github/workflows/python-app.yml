@@ -14,7 +14,9 @@ jobs:
 
     runs-on: ubuntu-latest
     container: poldrack/openscience-example
-    
+    defaults:
+      run:
+        working-directory: analysis    
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
