@@ -11,8 +11,8 @@ RUN pip install numpy==1.19.0 \
     scipy==1.5.0 \
     statsmodels==0.11.1 \
     jupyterlab==2.1.5 \
-    seaborn==0.10.1
-
+    seaborn==0.10.1 \
+    pytest
 
 WORKDIR /analysis
 CMD ["/bin/bash"]
