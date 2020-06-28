@@ -30,7 +30,7 @@ In order to ensure exact reproducibility of the analyses, we have implemented a 
 1. [Install the Docker client](https://docs.docker.com/get-docker/) on your computer.
 2. From the analysis subdirectory, run the analysis using the following command: ```make run-all```
 
-The Docker image is built using ```analysis/Dockerfile```. If you run the commands without building the Dockerfile locally, then the latest image will be downloaded from [Dockerhub](https://hub.docker.com/r/poldrack/openscience-example).  If you wish to build it locally, you should first change the ```DOCKER_USERNAME``` variable in ```analysis/Makefile``` to your own username, so that all of the commands will use your own version and you will be able to push it back to Dockerhub if you wish.
+The Docker image is built using ```analysis/Dockerfile```. If you run the commands without building the Dockerfile locally, then the latest image will be downloaded from [Dockerhub](https://hub.docker.com/r/poldrack/openscience-example).  If you wish to build it locally, you should first change the ```DOCKER_USERNAME``` variable in ```analysis/Makefile``` to your own username, so that all of the commands will use your own version and you will be able to push it back to Dockerhub if you wish.  You can then build it from within the analysis directory using ```make docker-build```.
 
 
 ### Software tests
