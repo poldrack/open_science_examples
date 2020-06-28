@@ -21,7 +21,7 @@ The resulting preprocessed data are saved to ```processed_data/study-1_task-stop
 
 The primary hypothesis of interest for this study is the effect of inhibitory training on subsequent valuation in the auction phase.  This is tested using a mixed effects model, implemented using the [statsmodels](https://www.statsmodels.org/stable/index.html) Python package in ```analysis/ReplicationAnalyses.ipynb```.
 
-
+The results are output to ```analysis/ReplicationAnalyses.html```.
 
 ### Reproducible execution
 
