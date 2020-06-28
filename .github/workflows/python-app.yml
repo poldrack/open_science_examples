@@ -16,7 +16,7 @@ jobs:
     container: poldrack/openscience-example
     defaults:
       run:
-        working-directory: analysis    
+        working-directory: bissett_RRR/analysis    
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
