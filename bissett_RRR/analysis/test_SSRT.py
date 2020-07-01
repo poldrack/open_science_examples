@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 
 
-def test_SSRT_estimation(threshold=0.98, nruns=100,
+def test_SSRT_estimation(threshold=0.95, nruns=100,
                          meanSSRT=0.5, sdSSRT=0.4,
                          ntrials=1000):
     """
