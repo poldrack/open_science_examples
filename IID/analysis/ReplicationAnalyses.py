@@ -21,7 +21,7 @@ import pandas as pd
 import statsmodels.formula.api as smf
 from pathlib import Path
 import seaborn as sns
-import matplotlib.pyplot as plt 
+import matplotlib.pyplot as plt
 
 datadir = Path('../data/processed_data')
 
@@ -38,16 +38,17 @@ auction_data = pd.read_csv(auction_datafile, sep='\t', index_col=0)
 print(auction_data.columns)
 
 # %%
-viol_plot = sns.catplot(x='auctionStimValue', 
-                           y='chosenAuctionAmount', 
-                           hue='auctionCondition', 
-                           data=auction_data, 
-                           palette="colorblind",
-                           kind='violin',
-                           height = 6,
-                           aspect = 1.5,
-                           legend=False)
-#viol_plot = sns.violinplot(x='auctionStimValue', y='chosenAuctionAmount', hue='auctionCondition', data=auction_data, legend=False)
+viol_plot = sns.catplot(
+    x='auctionStimValue',
+    y='chosenAuctionAmount',
+    hue='auctionCondition',
+    data=auction_data,
+    palette="colorblind",
+    kind='violin',
+    height=6,
+    aspect=1.5,
+    legend=False)
+
 plt.ylim([0, 500])
 viol_plot.ax.legend(loc=2, fontsize=18)
 
