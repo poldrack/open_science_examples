@@ -38,17 +38,16 @@ clean:
 
 run-all: run-organize run-preprocess run-stats
 
-run-organize:
-	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/organize_data.py -b /analysis --studynum 1 --studyname wessel_replication_1_OSF
-	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/organize_data.py -b /analysis --studynum 2 --studyname wessel_replication_2_OSF
+run-organize: guard-DOCKER_USERNAME
+	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/organize_data.py -b /analysis
 
-run-preprocess:
-	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/preprocess_data_DirectRep1.py -b /analysis
+run-preprocess: guard-DOCKER_USERNAME
+	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/preprocess_data.py -b /analysis
 
 run-stats: guard-DOCKER_USERNAME
 	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example jupyter nbconvert --to html --execute analysis/ReplicationAnalyses.ipynb
 
-run-test:
+run-test: guard-DOCKER_USERNAME
 	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example pytest /analysis/analysis
 
 
