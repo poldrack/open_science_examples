@@ -1,4 +1,3 @@
-## Processed data
 
 ### Awareness data
 
