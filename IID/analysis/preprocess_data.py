@@ -6,12 +6,20 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from get_SSRT import get_SSRT
-from utils import get_command_line_arguments
+import argparse
 
 
 # these are included here for testing
 num_stop_trials = 108
 num_go_trials = 180
+
+
+def get_command_line_arguments():
+    parser = argparse.ArgumentParser(
+        description='Reorganize replication data')
+    parser.add_argument('-b', '--basedir', required=True,
+                        help='base directory')
+    return(parser.parse_args())
 
 
 def find_datafiles(raw_datadir, processed_datadir):
@@ -186,8 +194,8 @@ def get_stoptask_results(data):
 if __name__ == '__main__':
     args = get_command_line_arguments()
 
-    raw_datadir = Path(args.basedir) / Path('raw_data/study-1')
-    processed_datadir = Path(args.basedir) / Path('processed_data')
+    raw_datadir = Path(args.basedir) / Path('data/primary_data/study-1')
+    processed_datadir = Path(args.basedir) / Path('data/processed_data')
 
     datafiles = find_datafiles(raw_datadir, processed_datadir)
 
