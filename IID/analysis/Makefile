@@ -30,8 +30,8 @@ check-style:
 # remove all outputs
 clean:
 	-rm ReplicationAnalyses.html
-	-rm ../processed_data/-1_task-*_data.tsv
-	-rm ../raw_data/study-1/*tsv
+	-rm ../data/*.tsv
+	-rm ../data/primary_data/study-*/*tsv
 
 
 # commands to run analyses via docker
@@ -39,7 +39,8 @@ clean:
 run-all: run-organize run-preprocess run-stats
 
 run-organize:
-	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/organize_data_DirectReplication1.py -b /analysis
+	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/organize_data.py -b /analysis --studynum 1 --studyname wessel_replication_1_OSF
+	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/organize_data.py -b /analysis --studynum 2 --studyname wessel_replication_2_OSF
 
 run-preprocess:
 	docker run -v $(parent_dir):/analysis $(DOCKER_USERNAME)/openscience-example python analysis/preprocess_data_DirectRep1.py -b /analysis
