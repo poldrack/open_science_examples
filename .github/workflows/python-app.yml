@@ -35,7 +35,7 @@ jobs:
     - name: Test with pytest
       run: |
         pytest IID
-     - name: Run full analysis
+    - name: Run full analysis
       run: |
         python IID/analysis/organize_data.py -b /analysis
         
