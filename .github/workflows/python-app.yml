@@ -35,10 +35,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest IID
+        pytest
     - name: Run full analysis
       run: |
-        python IID/analysis/organize_data.py -b /analysis
+        python organize_data.py -b ../
         
         
        
