@@ -43,14 +43,17 @@ We have included a test for the ```get_SSRT()``` function, which is used to comp
 
 To run the test, issue the following command from the analysis subdirectory: ```make run-test```
 
-This test is automatically performed whenever a new commit is made to the repository, using [Github Actions](https://help.github.com/en/actions).  See the setup file for this automated test [here](../.github/workflows/python-app.yml).
+This test is automatically performed whenever a new commit is made to the repository, using [Github Actions](https://help.github.com/en/actions).  See the setup file for this automated test [here](../.github/workflows/IID-analysis.yml).
 
 
 ## Automated workflow execution
 
-TBD
+The entire analysis workflow is also executed using Github Actions, by embedding the analysis commands within the [workflow file](../.github/workflows/IID-analysis.yml):
 
+    - name: Run full analysis
+      run: |
+        python organize_data.py -b ../
+        python preprocess_data.py -b ../
+        jupyter nbconvert --to html --execute ReplicationAnalyses.ipynb
 
-## Sharing of results
-
-TBD
+At present, the results from this execution are not stored back to the repository; thus, the execution serves more as a [smoke test](http://softwaretestingfundamentals.com/smoke-testing/#:~:text=SMOKE%20TESTING%2C%20also%20known%20as,to%20proceed%20with%20further%20testing) than a full automated execution system.  
