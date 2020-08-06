@@ -18,8 +18,8 @@ The data are subsequently preprocessed in order to obtain summary results for ea
 
 The resulting preprocessed data are saved to:
 
-- stop task: [data/study-1_task-stop_data.tsv](data/study-1_task-stop_data.tsv)
-- auction task: [data/study-1_task-auction_data.tsv](data/study-1_task-auction_data.tsv).
+- stop task: [data/processed_data/study-1_task-stop_data.tsv](data/study-1_task-stop_data.tsv)
+- auction task: [data/processed_data/study-1_task-auction_data.tsv](data/study-1_task-auction_data.tsv).
 
 ## Statistical analysis
 
