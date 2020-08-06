@@ -2,31 +2,24 @@
 
 ![Python application](https://github.com/poldrack/open_science_examples/workflows/Python%20application/badge.svg)
 
-This repository includes data and code to fully reproduce analyses for Bissett et al's attempted replication of [Wessel et al. (2014)](https://pubmed.ncbi.nlm.nih.gov/25313953/).  The dataset comprises two studies. The first (referred to as ``study-1``) was a preliminary replication attempt using an implementation of the published task developed by Bissett and colleagues; the materials and code used to administer this task are in [materials/DirectReplication1Code][materials/DirectReplication1Code).  Study-1 was not pre-registered. The second (referred to as ``study-2``) was a [pre-registered](https://osf.io/swk46/) replication attempt using code and materials obtained directly from the original authors, which are in [materials/DirectReplication2Code][materials/DirectReplication2Code)
+This repository includes data and code to fully reproduce analyses for Bissett et al's attempted replication of [Wessel et al. (2014)](https://pubmed.ncbi.nlm.nih.gov/25313953/).  The dataset here (referred to as ``study-1``) was a preliminary replication attempt using an implementation of the published task developed by Bissett and colleagues; the materials and code used to administer this task are in [materials/DirectReplication1Code][materials/DirectReplication1Code).  
 
 ## Data reorganization
 
 Original source data (downloaded from https://osf.io/x38aj/files/) are located in [data/primary_data/source_data](data/primary_data/source_data).
 
-These are converted to a format similar to [Psych-DS](https://psych-ds.github.io/) using [analysis/organize_data.py](analysis/organize_data_study-1.py).
+These are converted to a format similar to [Psych-DS](https://psych-ds.github.io/) using [analysis/organize_data.py](analysis/organize_data.py).
 
-The resulting reorganized data are located in [data/primary_data/study-1](data/primary_data/study-1) and [data/primary_data/study-2](data/primary_data/study-2), with a separate tab-separated value (.tsv) file for each subject.
+The resulting reorganized data are located in [data/primary_data/study-1](data/primary_data/study-1) , with a separate tab-separated value (.tsv) file for each subject.
 
 ## Preprocessing
 
-The data are subsequently preprocessed in order to obtain summary results for each subject for the stop signal and auction tasks, using:
-
-- Study 1: [analysis/preprocess_data_study-1.py](analysis/preprocess_data_study-1.py)
-- Study 2: [analysis/preprocess_data_study-2.py](analysis/preprocess_data_study-2.py)
+The data are subsequently preprocessed in order to obtain summary results for each subject for the stop signal and auction tasks, using [analysis/preprocess_data.py](analysis/preprocess_data.py)
 
 The resulting preprocessed data are saved to:
 
-- Study 1:
-    - stop task: [data/study-1_task-stop_data.tsv](data/study-1_task-stop_data.tsv)
-    - auction task: [data/study-1_task-auction_data.tsv](data/study-1_task-auction_data.tsv).
-- Study 2:
-    - stop task: [data/study-2_task-stop_data.tsv](data/study-2_task-stop_data.tsv)
-    - auction task: [data/study-2_task-auction_data.tsv](data/study-2_task-auction_data.tsv).
+- stop task: [data/study-1_task-stop_data.tsv](data/study-1_task-stop_data.tsv)
+- auction task: [data/study-1_task-auction_data.tsv](data/study-1_task-auction_data.tsv).
 
 ## Statistical analysis
 
