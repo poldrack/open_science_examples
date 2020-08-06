@@ -39,6 +39,8 @@ jobs:
     - name: Run full analysis
       run: |
         python organize_data.py -b ../
+        python preprocess_data.py -b ../
+        jupyter nbconvert --to html --execute ReplicationAnalyses.ipynb
         
         
        
