@@ -7,7 +7,7 @@ on:
   push:
     branches: [ master ]
     paths:
-      - 'IID/**'
+    - 'IID/**'
   pull_request:
     branches: [ master ]
 
