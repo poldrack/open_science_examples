@@ -1,0 +1,1280 @@
+<PsychoPy2experiment version="1.82.01" encoding="utf-8">
+  <Settings>
+    <Param name="Show mouse" val="False" valType="bool" updates="None"/>
+    <Param name="Data filename" val="u'data' + os.sep + '%s_%s' %(expInfo['participant'], expInfo['date'])" valType="code" updates="None"/>
+    <Param name="Monitor" val="testMonitor" valType="str" updates="None"/>
+    <Param name="Enable Escape" val="True" valType="bool" updates="None"/>
+    <Param name="color" val="black" valType="str" updates="None"/>
+    <Param name="Window size (pixels)" val="[2560, 1440]" valType="code" updates="None"/>
+    <Param name="Full-screen window" val="True" valType="bool" updates="None"/>
+    <Param name="colorSpace" val="rgb" valType="str" updates="None"/>
+    <Param name="Experiment info" val="{u'session': u'', u'participant': u''}" valType="code" updates="None"/>
+    <Param name="Save csv file" val="False" valType="bool" updates="None"/>
+    <Param name="Show info dlg" val="True" valType="bool" updates="None"/>
+    <Param name="Save wide csv file" val="True" valType="bool" updates="None"/>
+    <Param name="Save psydat file" val="True" valType="bool" updates="None"/>
+    <Param name="expName" val="LearningTask" valType="str" updates="None"/>
+    <Param name="logging level" val="warning" valType="code" updates="None"/>
+    <Param name="blendMode" val="avg" valType="str" updates="None"/>
+    <Param name="Save excel file" val="True" valType="bool" updates="None"/>
+    <Param name="Units" val="use prefs" valType="str" updates="None"/>
+    <Param name="Save log file" val="True" valType="bool" updates="None"/>
+    <Param name="Screen" val="1" valType="num" updates="None"/>
+  </Settings>
+  <Routines>
+    <Routine name="blankStop">
+      <TextComponent name="text_4">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_4" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="" valType="str" updates="constant"/>
+        <Param name="stopVal" val="1.5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_9">
+        <Param name="correctAns" val="$corrGoResp" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="True" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_9" valType="code" updates="None"/>
+        <Param name="stopVal" val="1.5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="False" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'z','m'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="End">
+      <TextComponent name="text_6">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_6" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="This is the end, beautiful friend" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="feedback">
+      <CodeComponent name="message">
+        <Param name="Begin Experiment" val="#***************************&#10;&#10;#message variable just needs some value at start&#10;message=0&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="message" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;import random&#10;&#10;displayReward = random.randrange(1, 6)&#10;&#10;if resp.corr:#stored on last run routine&#10;    if displayReward == 1:&#10;        computedReward = 0 # On 20% of all trials I want to give a 0 reward&#10;    else: &#10;        computedReward = round(currentReward + (random.randrange(-25, 26)*.01), 2)&#10;    message = &quot;You won $ %.2f&quot; %computedReward&#10;elif resp.keys is None: &#10;    message =&quot;Too Slow&quot;&#10;    computedReward = 0 &#10;else:&#10;    message=&quot;Wrong&quot;&#10;    computedReward = 0&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+      <TextComponent name="feedback_2">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="feedback_2" valType="code" updates="constant"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
+        <Param name="text" val="$message" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val=".2" valType="code" updates="constant"/>
+      </TextComponent>
+      <ImageComponent name="image">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="flipVert" val="False" valType="bool" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="image" valType="code" updates="None"/>
+        <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
+        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="mask" val="None" valType="str" updates="constant"/>
+        <Param name="pos" val="$[xPos, yPos]" valType="code" updates="set every repeat"/>
+        <Param name="interpolate" val="linear" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="pix" valType="str" updates="None"/>
+        <Param name="texture resolution" val="128" valType="code" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="image" val="$currentStimulus" valType="str" updates="set every repeat"/>
+        <Param name="size" val="[151, 151]" valType="code" updates="constant"/>
+      </ImageComponent>
+      <KeyboardComponent name="feedbackResp">
+        <Param name="correctAns" val="$corrAns" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="True" valType="bool" updates="constant"/>
+        <Param name="name" val="feedbackResp" valType="code" updates="None"/>
+        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="False" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'q', 'w', 's', 'a'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="auctionITI">
+      <TextComponent name="text_3">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_3" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="" valType="str" updates="constant"/>
+        <Param name="stopVal" val="$ITIDur" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+      <CodeComponent name="code_19">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_19" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="if auctionResponse.keys == 'r':&#10;    chosenAuctionAmount = currentAuctionAmount[0]&#10;elif auctionResponse.keys == 't':&#10;    chosenAuctionAmount = currentAuctionAmount[1]&#10;elif auctionResponse.keys == 'y':&#10;    chosenAuctionAmount = currentAuctionAmount[2]&#10;elif auctionResponse.keys == 'u':&#10;    chosenAuctionAmount = currentAuctionAmount[3]&#10;elif auctionResponse.keys == 'i':&#10;    chosenAuctionAmount = currentAuctionAmount[4]&#10;elif auctionResponse.keys == 'o':&#10;    chosenAuctionAmount = currentAuctionAmount[5]&#10;else: &#10;    chosenAuctionAmount = 0" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="auctionTrials.addData(&quot;EndTrialTimeStamp&quot;, core.getTime())&#10;auctionTrials.addData(&quot;auctionStim&quot;, currentAuctionStim)&#10;auctionTrials.addData(&quot;auctionAmounts&quot;, currentAuctionAmount)&#10;auctionTrials.addData(&quot;auctionStimValue&quot;, currentAuctionStimValue)&#10;auctionTrials.addData(&quot;auctionCondition&quot;, currentAuctionCondition)&#10;auctionTrials.addData(&quot;chosenAuctionAmount&quot;, chosenAuctionAmount)" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="auctionTrial">
+      <TextComponent name="Fix">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="Fix" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="+" valType="str" updates="constant"/>
+        <Param name="stopVal" val=".5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="1" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="R">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="R" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="R" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[-.75, -.7]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val=".2" valType="code" updates="constant"/>
+      </TextComponent>
+      <ImageComponent name="auctionStim">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="flipVert" val="False" valType="bool" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="auctionStim" valType="code" updates="None"/>
+        <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5.5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="mask" val="None" valType="str" updates="constant"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="interpolate" val="linear" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="pix" valType="str" updates="None"/>
+        <Param name="texture resolution" val="128" valType="code" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val=".5" valType="code" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="image" val="$currentAuctionStim" valType="str" updates="set every repeat"/>
+        <Param name="size" val="[151, 151]" valType="code" updates="constant"/>
+      </ImageComponent>
+      <TextComponent name="T">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="T" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="T" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[-.45, -.7]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="Y">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="Y" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="Y" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[-.15, -.7]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="U">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="U" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="U" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[.15, -.7]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="I">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="I" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="I" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[.45, -.7]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="O">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="O" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="O" valType="str" updates="constant"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[.75, -.7]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="RAmount">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="RAmount" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$currentAuctionAmount[0]" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[-.75, -.4]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="TAmount">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="TAmount" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$currentAuctionAmount[1]" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[-.45, -.4]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="YAmount">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="YAmount" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$currentAuctionAmount[2]" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[-.15, -.4]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="UAmount">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="UAmount" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$currentAuctionAmount[3]" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[.15, -.4]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="IAmount">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="IAmount" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$currentAuctionAmount[4]" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[.45, -.4]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <TextComponent name="OAmount">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="OAmount" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$currentAuctionAmount[5]" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="5.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[.75, -.4]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="norm" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.2" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="auctionResponse">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="auctionResponse" valType="code" updates="None"/>
+        <Param name="stopVal" val="5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'r', 't', 'y', 'u', 'i', 'o'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="1.0" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+      <CodeComponent name="code_18">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_18" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="startTime = trialClock.getTime()&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="endTime = trialClock.getTime()&#10;auctionStimDuration = endTime - startTime&#10;ITIDur = 6 - auctionStimDuration&#10;&#10;auctionTrials.addData(&quot;auctionStimDuration&quot;, auctionStimDuration)&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="pracStopCleanUp">
+      <CodeComponent name="code_13">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_13" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;if currentStopPracTrial['stopOrGo'] == 'go':&#10;    goTrialCount = goTrialCount + 1&#10;&#10;if goResp.corr and currentStopPracTrial['stopOrGo'] == 'go':&#10;    goCumRT = goCumRT + goResp.rt&#10;    goRTCount = goRTCount + 1&#10;&#10;if currentStopPracTrial['stopOrGo'] == 'stop':&#10;    stopTrialCount = stopTrialCount + 1&#10;&#10;if currentStopPracTrial['stopOrGo'] == 'stop' and goResp.keys is None and key_resp_9.keys is None:&#10;    stopSuccessCount = stopSuccessCount + 1&#10;&#10;if currentStopPracTrial['stopOrGo'] == 'go':&#10;    if goResp.keys is None:&#10;        omissionCount = omissionCount + 1&#10;    elif goResp.corr == 0:&#10;        commissionCount = commissionCount + 1&#10;&#10;#Outputting a bunch of variables&#10;pracStopTrials.addData(&quot;fixStopOnset&quot;, fixStop.tStart)&#10;pracStopTrials.addData(&quot;goStimOnset&quot;, goStim.tStart)&#10;if SSD  != -1:&#10;    pracStopTrials.addData(&quot;stopSignalOnset&quot;, stopSignal.tStart)&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="pracStopTrials.addData(&quot;EndTrialTimeStamp&quot;, core.getTime())" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="NewPracStim">
+      <CodeComponent name="code_11">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_11" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;SameStimPresentationCount = 0&#10;&#10;currentLearningPracTrial = learningPracTrialList.pop(0)&#10;currentStimulus = currentLearningPracTrial['fileName']&#10;currentReward = currentLearningPracTrial['reward']&#10;currentStimType = currentLearningPracTrial['condition']&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="endTrialMain">
+      <CodeComponent name="code_17">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_17" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="#***************************&#10;&#10;if resp.corr:&#10;    ReDoLoopMain.finished = True&#10;    rewardList.append(deepcopy(computedReward))&#10;&#10;trials.addData(&quot;currentReward&quot;, currentReward)&#10;trials.addData(&quot;currentStimulus&quot;, currentStimulus) &#10;trials.addData(&quot;currentStimType&quot;, currentStimType)&#10;&#10;if SameStimPresentationCount == 1:&#10;    trials.addData(&quot;firstComputedRewardOutput&quot;, computedReward)&#10;    trials.addData(&quot;firstLearningStimOnset&quot;, learningStim.tStart)&#10;    trials.addData(&quot;firstLearningFixOnset&quot;, learningFix.tStart)&#10;    trials.addData(&quot;firstPresentationRT&quot;, resp.rt)&#10;    trials.addData(&quot;firstPresentationAcc&quot;, resp.corr)&#10;    trials.addData(&quot;firstPresentationResp&quot;, resp.keys)&#10;    trials.addData(&quot;firstEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 2: &#10;    trials.addData(&quot;secondComputedRewardOutput&quot;, computedReward)&#10;    trials.addData(&quot;secondLearningStimOnset&quot;, learningStim.tStart)&#10;    trials.addData(&quot;secondLearningFixOnset&quot;, learningFix.tStart)&#10;    trials.addData(&quot;secondPresentationRT&quot;, resp.rt)&#10;    trials.addData(&quot;secondPresentationAcc&quot;, resp.corr)&#10;    trials.addData(&quot;secondPresentationResp&quot;, resp.keys)&#10;    trials.addData(&quot;secondEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 3: &#10;    trials.addData(&quot;thirdComputedRewardOutput&quot;, computedReward)&#10;    trials.addData(&quot;thirdLearningStimOnset&quot;, learningStim.tStart)&#10;    trials.addData(&quot;thirdLearningFixOnset&quot;, learningFix.tStart)&#10;    trials.addData(&quot;thirdPresentationRT&quot;, resp.rt)&#10;    trials.addData(&quot;thirdPresentationAcc&quot;, resp.corr)&#10;    trials.addData(&quot;thirdPresentationResp&quot;, resp.keys)&#10;    trials.addData(&quot;thirdEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 4: &#10;    trials.addData(&quot;fourthComputedRewardOutput&quot;, computedReward)&#10;    trials.addData(&quot;fourthLearningStimOnset&quot;, learningStim.tStart)&#10;    trials.addData(&quot;fourthLearningFixOnset&quot;, learningFix.tStart)&#10;    trials.addData(&quot;fourthPresentationRT&quot;, resp.rt)&#10;    trials.addData(&quot;fourthPresentationAcc&quot;, resp.corr)&#10;    trials.addData(&quot;fourthPresentationResp&quot;, resp.keys)&#10;    trials.addData(&quot;fourthEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 5: &#10;    trials.addData(&quot;fifthComputedRewardOutput&quot;, computedReward)&#10;    trials.addData(&quot;fifthLearningStimOnset&quot;, learningStim.tStart)&#10;    trials.addData(&quot;fifthLearningFixOnset&quot;, learningFix.tStart)&#10;    trials.addData(&quot;fifthPresentationRT&quot;, resp.rt)&#10;    trials.addData(&quot;fifthPresentationAcc&quot;, resp.corr)&#10;    trials.addData(&quot;fifthPresentationResp&quot;, resp.keys)&#10;    trials.addData(&quot;fifthEndTrialTimeStamp&quot;, core.getTime())&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="GetReadyForMainLearning"/>
+    <Routine name="SSDChange">
+      <CodeComponent name="code_2">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_2" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;#Adjusting SSD within a range of 0-750ms&#10;if currentStopTrial['stopOrGo'] == 'stop':&#10;    if goResp.keys is None:&#10;        if SSD &lt;= .75:&#10;            if xPosGoStim == -200:&#10;                SSDLeft = deepcopy(SSDLeft)  + .05&#10;                SSD = SSDLeft&#10;            if xPosGoStim == 200:&#10;                SSDRight = deepcopy(SSDRight) + .05&#10;                SSD = SSDRight&#10;    else:&#10;        if SSD &gt; .001:&#10;            if xPosGoStim == -200:&#10;                SSDLeft = deepcopy(SSDLeft) - .05&#10;                SSD = SSDLeft&#10;            if xPosGoStim == 200:&#10;                SSDRight = deepcopy(SSDRight) - .05&#10;                SSD = SSDRight&#10;&#10;if currentStopTrial['stopOrGo'] == 'go':&#10;    goTrialCount = goTrialCount + 1&#10;&#10;if goResp.corr and currentStopTrial['stopOrGo'] == 'go':&#10;    goCumRT = goCumRT + goResp.rt&#10;    goRTCount = goRTCount + 1&#10;&#10;if currentStopTrial['stopOrGo'] == 'stop':&#10;    stopTrialCount = stopTrialCount + 1&#10;&#10;if currentStopTrial['stopOrGo'] == 'stop' and goResp.keys is None and key_resp_9.keys is None:&#10;    stopSuccessCount = stopSuccessCount + 1&#10;&#10;if currentStopTrial['stopOrGo'] == 'go':&#10;    if goResp.keys is None:&#10;        omissionCount = omissionCount + 1&#10;    elif goResp.corr == 0:&#10;        commissionCount = commissionCount + 1&#10;&#10;StopTrials.addData(&quot;fixStopOnset&quot;, fixStop.tStart)&#10;StopTrials.addData(&quot;goStimOnset&quot;, goStim.tStart)&#10;if SSD  != -1:&#10;    StopTrials.addData(&quot;stopSignalOnset&quot;, stopSignal.tStart)&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="#***************************&#10;&#10;StopTrials.addData(&quot;EndingSSD&quot;, SSD)&#10;StopTrials.addData(&quot;EndTrialTimeStamp&quot;, core.getTime())&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="ResetAtBlock">
+      <CodeComponent name="code_3">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_3" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;Redo = 1&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="endTrial">
+      <CodeComponent name="code_16">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_16" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="#***************************&#10;&#10;if resp.corr:&#10;    ReDoLoopPrac.finished = True&#10;&#10;pracTrials.addData(&quot;currentReward&quot;, currentReward)&#10;pracTrials.addData(&quot;currentStimulus&quot;, currentStimulus) &#10;pracTrials.addData(&quot;currentStimType&quot;, currentStimType)&#10;&#10;if SameStimPresentationCount == 1:&#10;    pracTrials.addData(&quot;firstPracComputedRewardOutput&quot;, computedReward)&#10;    pracTrials.addData(&quot;firstPracLearningStimOnset&quot;, learningStim.tStart)&#10;    pracTrials.addData(&quot;firstPracLearningFixOnset&quot;, learningFix.tStart)&#10;    pracTrials.addData(&quot;firstPracPresentationRT&quot;, resp.rt)&#10;    pracTrials.addData(&quot;firstPracPresentationAcc&quot;, resp.corr)&#10;    pracTrials.addData(&quot;firstPracPresentationResp&quot;, resp.keys)&#10;    pracTrials.addData(&quot;firstPracEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 2: &#10;    pracTrials.addData(&quot;secondPracComputedRewardOutput&quot;, computedReward)&#10;    pracTrials.addData(&quot;secondPracLearningStimOnset&quot;, learningStim.tStart)&#10;    pracTrials.addData(&quot;secondPracLearningFixOnset&quot;, learningFix.tStart)&#10;    pracTrials.addData(&quot;secondPracPresentationRT&quot;, resp.rt)&#10;    pracTrials.addData(&quot;secondPracPresentationAcc&quot;, resp.corr)&#10;    pracTrials.addData(&quot;secondPracPresentationResp&quot;, resp.keys)&#10;    pracTrials.addData(&quot;secondPracEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 3: &#10;    pracTrials.addData(&quot;thirdPracComputedRewardOutput&quot;, computedReward)&#10;    pracTrials.addData(&quot;thirdPracLearningStimOnset&quot;, learningStim.tStart)&#10;    pracTrials.addData(&quot;thirdPracLearningFixOnset&quot;, learningFix.tStart)&#10;    pracTrials.addData(&quot;thirdPracPresentationRT&quot;, resp.rt)&#10;    pracTrials.addData(&quot;thirdPracPresentationAcc&quot;, resp.corr)&#10;    pracTrials.addData(&quot;thirdPracPresentationResp&quot;, resp.keys)&#10;    pracTrials.addData(&quot;thirdPracEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 4: &#10;    pracTrials.addData(&quot;fourthPracComputedRewardOutput&quot;, computedReward)&#10;    pracTrials.addData(&quot;fourthPracLearningStimOnset&quot;, learningStim.tStart)&#10;    pracTrials.addData(&quot;fourthPracLearningFixOnset&quot;, learningFix.tStart)&#10;    pracTrials.addData(&quot;fourthPracPresentationRT&quot;, resp.rt)&#10;    pracTrials.addData(&quot;fourthPracPresentationAcc&quot;, resp.corr)&#10;    pracTrials.addData(&quot;fourthPracPresentationResp&quot;, resp.keys)&#10;    pracTrials.addData(&quot;fourthPracEndTrialTimeStamp&quot;, core.getTime())&#10;elif SameStimPresentationCount == 5: &#10;    pracTrials.addData(&quot;fifthPracComputedRewardOutput&quot;, computedReward)&#10;    pracTrials.addData(&quot;fifthPracLearningStimOnset&quot;, learningStim.tStart)&#10;    pracTrials.addData(&quot;fifthPracLearningFixOnset&quot;, learningFix.tStart)&#10;    pracTrials.addData(&quot;fifthPracPresentationRT&quot;, resp.rt)&#10;    pracTrials.addData(&quot;fifthPracPresentationAcc&quot;, resp.corr)&#10;    pracTrials.addData(&quot;fifthPracPresentationResp&quot;, resp.keys)&#10;    pracTrials.addData(&quot;fifthPracEndTrialTimeStamp&quot;, core.getTime())&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="StimSetup">
+      <CodeComponent name="code">
+        <Param name="Begin Experiment" val="#***************************&#10;&#10;from copy import deepcopy&#10;import random&#10;&#10;colors = ['yellow', 'white', 'orange', 'magenta', 'green', 'gray', 'cyan', 'blue']&#10;shapes = ['triangle', 'square', 'line', 'invertedtriangle', 'hexagon', 'diamond', 'cross', 'circle']&#10;rewards = [0.50, 1.00, 2.00, 4.00] * 2&#10;conditions = ['go', 'go', 'go', 'go', 'stop', 'stop', 'stop', 'stop']&#10;trialDetailsList = []&#10;learningTrialList = []&#10;learningPracTrialList = []&#10;auctionTrialList = []&#10;rewardList = []&#10;rewardCount = 1&#10;numStim = 8&#10;numLearningTrials = 400&#10;numLearningRepetitions = 50&#10;numLearningPracTrial = 10&#10;stopTaskTrials = 288&#10;numStopPracTrial = 10&#10;stopTrialsPerStopStim = 27&#10;goTrialsPerStopStim = 9&#10;goTrialsPerGoStim = 36&#10;stopTrialList = []&#10;stopPracTrialList = []&#10;auctionTrials = 80&#10;auctionTrialsPerStim = 10&#10;auctionAmounts = 5&#10;eachAuctionAmountCount = 2&#10;auctionAmountsList = [[34, 68, 102, 136, 170, 204], [39, 78, 117, 156, 195, 234], [44, 88, 132, 176, 220, 264], [49, 98, 147, 196, 245, 294], [54, 108, 162, 216, 270, 324]]&#10;&#10;shuffle(colors)&#10;shuffle(shapes)&#10;&#10;for i, color in enumerate(colors): # cycle through each color and keep track of an index number&#10;    trialDetails = {} # a dictionary of key-value pairs&#10;    trialDetails['fileName'] = shapes[i] + color + '.gif'&#10;    trialDetails['reward'] = rewards[i]&#10;    trialDetails['condition'] = conditions[i]&#10;    trialDetailsList.append(trialDetails)&#10;&#10;shuffle(trialDetailsList) # do this now to ensure that order of presentation of rewards and conditions is also shuffled&#10;&#10;for k in range(0, numLearningRepetitions):&#10;    for n in range (0, numStim): &#10;        learningTrialList.append(deepcopy(trialDetailsList[n]))&#10;&#10;shuffle(learningTrialList)&#10;&#10;thisExp.addData(&quot;learningTrialList&quot;, learningTrialList)&#10;&#10;for o in range(0, numLearningPracTrial):&#10;    p = random.randrange(0, numStim)&#10;    learningPracTrialList.append(deepcopy(trialDetailsList[p]))&#10;&#10;shuffle(learningPracTrialList)&#10;&#10;thisExp.addData(&quot;learningPracTrialList&quot;, learningPracTrialList)&#10;&#10;for q in range(0, numStim):&#10;    if trialDetailsList[q]['condition'] == 'go':&#10;        trialDetailsList[q]['stopOrGo'] =  'go'&#10;        for i in range(0, goTrialsPerGoStim):&#10;            stopTrialList.append(deepcopy(trialDetailsList[q]))&#10;    elif trialDetailsList[q]['condition'] == 'stop': &#10;        for j in range(0, goTrialsPerStopStim):&#10;            trialDetailsList[q]['stopOrGo'] = 'go'&#10;            stopTrialList.append(deepcopy(trialDetailsList[q]))&#10;        for r in range(0, stopTrialsPerStopStim):&#10;            trialDetailsList[q]['stopOrGo'] = 'stop'&#10;            stopTrialList.append(deepcopy(trialDetailsList[q]))&#10;&#10;shuffle(stopTrialList)&#10;&#10;thisExp.addData(&quot;stopTrialList&quot;, stopTrialList)&#10;&#10;for s in range(0, numStopPracTrial):&#10;    s = random.randrange(0, numStim)&#10;    stopPracTrialList.append(deepcopy(trialDetailsList[s]))&#10;    &#10;shuffle(stopPracTrialList)&#10;&#10;thisExp.addData(&quot;stopPracTrialList&quot;, stopPracTrialList)&#10;&#10;for l in range(0, auctionAmounts):&#10;    for t in range(0, numStim):&#10;        for u in range(0, eachAuctionAmountCount):&#10;            shuffle(auctionAmountsList[l])&#10;            trialDetailsList[t]['auctionAmount'] = auctionAmountsList[l]&#10;            auctionTrialList.append(deepcopy(trialDetailsList[t]))&#10;&#10;shuffle(auctionTrialList)&#10;&#10;thisExp.addData(&quot;auctionTrialList&quot;, auctionTrialList)&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="instrPractice">
+      <TextComponent name="instruct1">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="instruct1" valType="code" updates="constant"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="A shape stimulus will appear on every trial. &#10;&#10;If it appears in the upper right quadrant, PRESS W&#10;&#10;If it appears in the lower right quadrant, PRESS S&#10;&#10;If it appears in the lower left quadrant, PRESS A&#10;&#10;If it appears in the upper left quadrant, PRESS Q&#10;&#10;Responding as fast and as accurately as possible will lead to higher rewards. The computer will randomly pick five of the trials at the end of the experiment and pay out the amount associated with those trials.&#10;&#10;Press the 9 key when you are ready to proceed. " valType="str" updates="constant"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.07" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="ok1">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="ok1" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'9'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="learningRest">
+      <TextComponent name="text">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="Please Take a Moment to Rest&#10;&#10;(press the 9 key to continue)" valType="str" updates="constant"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_7">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_7" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'9'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="Bank"/>
+    <Routine name="ExitPrac_2"/>
+    <Routine name="stopBlockSetup">
+      <CodeComponent name="code_9">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_9" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;goCumRT = 0&#10;goRTCount = 0&#10;omissionCount = 0&#10;commissionCount = 0&#10;stopTrialCount = 0&#10;stopSuccessCount = 0&#10;goTrialCount = 0&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="newPracStopStim">
+      <CodeComponent name="code_12">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_12" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;pracStopTrials.addData(&quot;StartTrialTimeStamp&quot;, core.getTime())&#10;&#10;currentStopPracTrial = stopPracTrialList.pop(0)&#10;currentGoStim = currentStopPracTrial['fileName']&#10;currentStopOrGo = currentStopPracTrial['stopOrGo']&#10;currentStimType = currentStopPracTrial['condition']&#10;currentStopStimValue = currentStopPracTrial['reward']&#10;&#10;if currentStopOrGo == 'stop':&#10;    SSD = .25&#10;    stopSignal.setVolume(.2)&#10;elif currentStopOrGo == 'go': &#10;    SSD = -1 #This makes it so the auditory tone does not occur. There's probably a more elegant way to do this. Suggestions?&#10;    stopSignal.setVolume(0)&#10;#&#10;pracStopTrials.addData(&quot;trialType&quot;, currentStopOrGo)&#10;pracStopTrials.addData(&quot;goStim&quot;, currentGoStim)&#10;pracStopTrials.addData(&quot;stimType&quot;, currentStimType)&#10;pracStopTrials.addData(&quot;stopStimValue&quot;, currentStopStimValue)&#10;SSDInput = SSD + .5 # +.5 because that's the duration of the fixation cross before the go stim appears&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="startTrial">
+      <CodeComponent name="code_20">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_20" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="SameStimPresentationCount = SameStimPresentationCount + 1" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="endOfStopBlockFeedback">
+      <CodeComponent name="code_10">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_10" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;if goRTCount &gt; 0:&#10;    goRTFeedback = goCumRT/goRTCount&#10;    goRTFeedback = round(goRTFeedback, 2)&#10;else:&#10;    goRTFeedback = 'Null'&#10;&#10;if goTrialCount &gt; 0:&#10;    commissionRate = (commissionCount/goTrialCount)*100&#10;    commissionRate = round(commissionRate, 2)&#10;    omissionRate = (omissionCount/goTrialCount)*100&#10;    omissionRate = round(omissionRate, 2)&#10;else: &#10;    commissionRate = 'Null'&#10;    omissionRate = 'Null'&#10;&#10;if stopTrialCount &gt; 0: &#10;    probabilityOfStop = stopSuccessCount/stopTrialCount&#10;    probabilityOfStop = round(probabilityOfStop, 2)&#10;else:&#10;    probabilityOfStop = 'Null'&#10;&#10;SSDFeedback = (SSDLeft+SSDRight)/2&#10;SSDFeedback = round(SSDFeedback, 2)&#10;&#10;stopMessage = &quot; RT = &quot; + str(goRTFeedback) + &quot;\n Omission % = &quot; + str(omissionRate) + &quot;\n Commission % = &quot; + str(commissionRate) + &quot;\n\n\n\n &quot; + str(probabilityOfStop) + &quot;\n &quot; + str(SSDFeedback) + &quot;\n\n (Press the 9 key to continue)&quot;&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+      <TextComponent name="text_5">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_5" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$stopMessage" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_3">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_3" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'9'" valType="code" updates="set every repeat"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="last key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="newAuctionStim">
+      <CodeComponent name="code_14">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_14" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;auctionTrials.addData(&quot;StartTrialTimeStamp&quot;, core.getTime())&#10;&#10;currentAuctionTrial = auctionTrialList.pop(0)&#10;currentAuctionStim = currentAuctionTrial['fileName']&#10;currentAuctionAmount = currentAuctionTrial['auctionAmount']&#10;currentAuctionStimValue = currentAuctionTrial['reward']&#10;currentAuctionCondition = currentAuctionTrial['condition']&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="startTrialPrac">
+      <CodeComponent name="code_21">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_21" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="SameStimPresentationCount = SameStimPresentationCount + 1" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="instrMain">
+      <TextComponent name="instr2">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="instr2" valType="code" updates="constant"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="A shape stimulus will appear on every trial. &#10;&#10;If it appears in the upper right quadrant, PRESS Y&#10;&#10;If it appears in the lower right quadrant, PRESS H&#10;&#10;If it appears in the lower left quadrant, PRESS G&#10;&#10;If it appears in the upper left quadrant, PRESS T&#10;&#10;Press any key when you are ready to proceed. " valType="str" updates="constant"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.075" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="ok2">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="ok2" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="nothing" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="StopTrial">
+      <SoundComponent name="stopSignal">
+        <Param name="sound" val="900" valType="str" updates="constant"/>
+        <Param name="volume" val="" valType="code" updates="constant"/>
+        <Param name="name" val="stopSignal" valType="code" updates="None"/>
+        <Param name="stopVal" val=".2" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="startEstim" val=".75" valType="code" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="$SSDInput" valType="code" updates="None"/>
+      </SoundComponent>
+      <TextComponent name="fixStop">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="fixStop" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="|" valType="str" updates="constant"/>
+        <Param name="stopVal" val="1.5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="4" valType="code" updates="constant"/>
+      </TextComponent>
+      <ImageComponent name="goStim">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="flipVert" val="False" valType="bool" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="goStim" valType="code" updates="None"/>
+        <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
+        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="mask" val="None" valType="str" updates="constant"/>
+        <Param name="pos" val="$[xPosGoStim, yPosGoStim]" valType="code" updates="set every repeat"/>
+        <Param name="interpolate" val="linear" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="pix" valType="str" updates="None"/>
+        <Param name="texture resolution" val="128" valType="code" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val=".5" valType="code" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="image" val="$currentGoStim" valType="str" updates="set every repeat"/>
+        <Param name="size" val="[151, 151]" valType="code" updates="constant"/>
+      </ImageComponent>
+      <KeyboardComponent name="goResp">
+        <Param name="correctAns" val="$corrGoResp" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="True" valType="bool" updates="constant"/>
+        <Param name="name" val="goResp" valType="code" updates="None"/>
+        <Param name="stopVal" val="1" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="False" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'z','m'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val=".5" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="instrStopPrac">
+      <TextComponent name="instrStopText">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="instrStopText" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="A shape stimulus will appear on the left or right side of the screen&#10;&#10;If it appears on the left, press Z&#10;&#10;If it appears on the right, press M&#10;&#10;If you hear a tone, do not press anything on that trial&#10;&#10;Responding quickly to the location of the shape and withholding your response when you hear a tone are equally important. &#10;&#10;Press the 9 key when you are ready to proceed. " valType="str" updates="constant"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.07" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_2">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_2" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'9'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="nothing" valType="str" updates="constant"/>
+      </KeyboardComponent>
+      <CodeComponent name="code_8">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_8" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;InitSSD = .25&#10;SSDLeft = InitSSD&#10;SSDRight = InitSSD&#10;goCumRT = 0&#10;goRTCount = 0&#10;omissionCount = 0&#10;commissionCount = 0&#10;stopTrialCount = 0&#10;stopSuccessCount = 0&#10;goTrialCount = 0&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="ExitMain">
+      <CodeComponent name="code_6">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_6" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="&#10;&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="NewStim">
+      <CodeComponent name="code_4">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_4" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;SameStimPresentationCount = 0&#10;&#10;currentLearningTrial = learningTrialList.pop(0)&#10;currentStimulus = currentLearningTrial['fileName']&#10;currentReward = currentLearningTrial['reward']&#10;currentStimType = currentLearningTrial['condition']&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="ExitPrac">
+      <CodeComponent name="code_5">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_5" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+    <Routine name="trial">
+      <KeyboardComponent name="resp">
+        <Param name="correctAns" val="$corrAns" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="True" valType="bool" updates="constant"/>
+        <Param name="name" val="resp" valType="code" updates="None"/>
+        <Param name="stopVal" val="1" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="False" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'q', 'w', 's', 'a'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val=".5" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+      <TextComponent name="learningFix">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="learningFix" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="+" valType="str" updates="constant"/>
+        <Param name="stopVal" val="1.5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="1" valType="code" updates="constant"/>
+      </TextComponent>
+      <ImageComponent name="learningStim">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="flipVert" val="False" valType="bool" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="learningStim" valType="code" updates="None"/>
+        <Param name="color" val="$[1,1,1]" valType="str" updates="constant"/>
+        <Param name="stopVal" val="1.0" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="mask" val="None" valType="str" updates="constant"/>
+        <Param name="pos" val="$[xPos, yPos]" valType="code" updates="set every repeat"/>
+        <Param name="interpolate" val="linear" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="pix" valType="str" updates="None"/>
+        <Param name="texture resolution" val="128" valType="code" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val=".5" valType="code" updates="None"/>
+        <Param name="flipHoriz" val="False" valType="bool" updates="constant"/>
+        <Param name="image" val="$currentStimulus" valType="str" updates="set every repeat"/>
+        <Param name="size" val="[151, 151]" valType="code" updates="constant"/>
+      </ImageComponent>
+    </Routine>
+    <Routine name="Blank">
+      <TextComponent name="text_2">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_2" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="" valType="str" updates="constant"/>
+        <Param name="stopVal" val=".5" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+    </Routine>
+    <Routine name="rewardCalc">
+      <CodeComponent name="code_15">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_15" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;shuffle(rewardList)&#10;&#10;thisExp.addData(&quot;shuffledRewardList&quot;, rewardList)&#10;&#10;chosenReward1 = rewardList.pop(0)&#10;chosenReward2 = rewardList.pop(1)&#10;chosenReward3 = rewardList.pop(2)&#10;chosenReward4 = rewardList.pop(3)&#10;chosenReward5 = rewardList.pop(4)&#10;&#10;totalReward = 12 + chosenReward1 + chosenReward2 + chosenReward3 + chosenReward4 + chosenReward5&#10;&#10;displayedReward = &quot;In total, you earned $ %.2f&quot; %totalReward&#10;&#10;thisExp.addData(&quot;chosenReward1&quot;, chosenReward1)&#10;thisExp.addData(&quot;chosenReward2&quot;, chosenReward2)&#10;thisExp.addData(&quot;chosenReward3&quot;, chosenReward3)&#10;thisExp.addData(&quot;chosenReward4&quot;, chosenReward4)&#10;thisExp.addData(&quot;chosenReward5&quot;, chosenReward5)&#10;&#10;#***************************&#10;&#10;" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+      <TextComponent name="text_11">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_11" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="$displayedReward" valType="str" updates="set every repeat"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_6">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_6" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="last key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="auctionBreak">
+      <TextComponent name="text_9">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_9" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="Please Take a Break&#10;&#10;(press the 9 key to continue)" valType="str" updates="constant"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.1" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_5">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_5" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'9'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="first key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="instrAuction">
+      <TextComponent name="text_7">
+        <Param name="opacity" val="1" valType="code" updates="constant"/>
+        <Param name="colorSpace" val="rgb" valType="str" updates="constant"/>
+        <Param name="name" val="text_7" valType="code" updates="None"/>
+        <Param name="wrapWidth" val="" valType="code" updates="constant"/>
+        <Param name="color" val="white" valType="str" updates="constant"/>
+        <Param name="text" val="Please go get the Experimenter so that you can read the written instructions for final phase of the study. &#10;&#10;The payoff from this final phase will be paid out at the end of the experiment. &#10;&#10;Press the 9 key after you have gotten the experimenter and read the instructions. " valType="str" updates="constant"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="pos" val="[0, 0]" valType="code" updates="constant"/>
+        <Param name="flip" val="" valType="str" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="units" val="from exp settings" valType="str" updates="None"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="ori" val="0" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="font" val="Arial" valType="str" updates="constant"/>
+        <Param name="letterHeight" val="0.07" valType="code" updates="constant"/>
+      </TextComponent>
+      <KeyboardComponent name="key_resp_4">
+        <Param name="correctAns" val="" valType="str" updates="constant"/>
+        <Param name="storeCorrect" val="False" valType="bool" updates="constant"/>
+        <Param name="name" val="key_resp_4" valType="code" updates="None"/>
+        <Param name="stopVal" val="" valType="code" updates="constant"/>
+        <Param name="durationEstim" val="" valType="code" updates="None"/>
+        <Param name="forceEndRoutine" val="True" valType="bool" updates="constant"/>
+        <Param name="startEstim" val="" valType="code" updates="None"/>
+        <Param name="discard previous" val="True" valType="bool" updates="constant"/>
+        <Param name="startType" val="time (s)" valType="str" updates="None"/>
+        <Param name="allowedKeys" val="'9'" valType="code" updates="constant"/>
+        <Param name="stopType" val="duration (s)" valType="str" updates="None"/>
+        <Param name="startVal" val="0.0" valType="code" updates="None"/>
+        <Param name="store" val="last key" valType="str" updates="constant"/>
+      </KeyboardComponent>
+    </Routine>
+    <Routine name="newStopStim">
+      <CodeComponent name="code_7">
+        <Param name="Begin Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="name" val="code_7" valType="code" updates="None"/>
+        <Param name="Begin Routine" val="#***************************&#10;&#10;StopTrials.addData(&quot;StartTrialTimeStamp&quot;, core.getTime())&#10;&#10;currentStopTrial = stopTrialList.pop(0)&#10;currentGoStim = currentStopTrial['fileName']&#10;currentStopOrGo = currentStopTrial['stopOrGo']&#10;currentStimType = currentStopTrial['condition']&#10;currentStopStimValue = currentStopTrial['reward']&#10;&#10;#Separate SSD tracking algorithms for left and right responses&#10;if currentStopOrGo == 'stop':&#10;    stopSignal.setVolume(.2)&#10;    if xPosGoStim == -200:&#10;        SSD = deepcopy(SSDLeft)&#10;    else:&#10;        SSD = deepcopy(SSDRight)&#10;elif currentStopOrGo == 'go':&#10;    SSD = -1&#10;    stopSignal.setVolume(0)&#10;&#10;StopTrials.addData(&quot;beginningSSD&quot;, SSD)&#10;StopTrials.addData(&quot;trialType&quot;, currentStopOrGo)&#10;StopTrials.addData(&quot;goStim&quot;, currentGoStim)&#10;StopTrials.addData(&quot;stimType&quot;, currentStimType)&#10;StopTrials.addData(&quot;stopStimValue&quot;, currentStopStimValue)&#10;SSDInput = SSD + .5&#10;&#10;#***************************" valType="extendedCode" updates="constant"/>
+        <Param name="End Routine" val="" valType="extendedCode" updates="constant"/>
+        <Param name="End Experiment" val="" valType="extendedCode" updates="constant"/>
+        <Param name="Each Frame" val="" valType="extendedCode" updates="constant"/>
+      </CodeComponent>
+    </Routine>
+  </Routines>
+  <Flow>
+    <Routine name="StimSetup"/>
+    <Routine name="instrPractice"/>
+    <LoopInitiator loopType="TrialHandler" name="pracTrials">
+      <Param name="conditionsFile" val="TrialtypesLearningPrac.xlsx" valType="str" updates="None"/>
+      <Param name="name" val="pracTrials" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="fullRandom" valType="str" updates="None"/>
+      <Param name="nReps" val="1" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="[{u'xPos': 200, u'corrAns': u'w', u'yPos': 200}, {u'xPos': -200, u'corrAns': u'q', u'yPos': 200}, {u'xPos': 200, u'corrAns': u's', u'yPos': -200}, {u'xPos': -200, u'corrAns': u'a', u'yPos': -200}, {u'xPos': 200, u'corrAns': u'w', u'yPos': 200}, {u'xPos': -200, u'corrAns': u'q', u'yPos': 200}, {u'xPos': 200, u'corrAns': u's', u'yPos': -200}, {u'xPos': -200, u'corrAns': u'a', u'yPos': -200}, {u'xPos': 200, u'corrAns': u'w', u'yPos': 200}, {u'xPos': -200, u'corrAns': u'q', u'yPos': 200}]" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="NewPracStim"/>
+    <LoopInitiator loopType="TrialHandler" name="ReDoLoopPrac">
+      <Param name="conditionsFile" val="" valType="str" updates="None"/>
+      <Param name="name" val="ReDoLoopPrac" valType="code" updates="None"/>
+      <Param name="isTrials" val="False" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="sequential" valType="str" updates="None"/>
+      <Param name="nReps" val="5" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="startTrialPrac"/>
+    <Routine name="trial"/>
+    <Routine name="feedback"/>
+    <Routine name="Blank"/>
+    <Routine name="endTrial"/>
+    <LoopTerminator name="ReDoLoopPrac"/>
+    <LoopTerminator name="pracTrials"/>
+    <Routine name="instrStopPrac"/>
+    <LoopInitiator loopType="TrialHandler" name="pracStopTrials">
+      <Param name="conditionsFile" val="trialtypeStop.xlsx" valType="str" updates="None"/>
+      <Param name="name" val="pracStopTrials" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="fullRandom" valType="str" updates="None"/>
+      <Param name="nReps" val="5" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="[{u'corrGoResp': u'z', u'yPosGoStim': 0, u'xPosGoStim': -200}, {u'corrGoResp': u'm', u'yPosGoStim': 0, u'xPosGoStim': 200}]" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="newPracStopStim"/>
+    <Routine name="StopTrial"/>
+    <Routine name="blankStop"/>
+    <Routine name="pracStopCleanUp"/>
+    <LoopTerminator name="pracStopTrials"/>
+    <Routine name="endOfStopBlockFeedback"/>
+    <Routine name="instrPractice"/>
+    <LoopInitiator loopType="TrialHandler" name="Blocks">
+      <Param name="conditionsFile" val="" valType="str" updates="None"/>
+      <Param name="name" val="Blocks" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="sequential" valType="str" updates="None"/>
+      <Param name="nReps" val="4" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <LoopInitiator loopType="TrialHandler" name="trials">
+      <Param name="conditionsFile" val="TrialtypesLearning.xlsx" valType="str" updates="None"/>
+      <Param name="name" val="trials" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="fullRandom" valType="str" updates="None"/>
+      <Param name="nReps" val="25" valType="num" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="[{u'xPos': 200, u'corrAns': u'h', u'yPos': 200}, {u'xPos': -200, u'corrAns': u'g', u'yPos': 200}, {u'xPos': 200, u'corrAns': u'n', u'yPos': -200}, {u'xPos': -200, u'corrAns': u'b', u'yPos': -200}]" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="NewStim"/>
+    <LoopInitiator loopType="TrialHandler" name="ReDoLoopMain">
+      <Param name="conditionsFile" val="" valType="str" updates="None"/>
+      <Param name="name" val="ReDoLoopMain" valType="code" updates="None"/>
+      <Param name="isTrials" val="False" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="sequential" valType="str" updates="None"/>
+      <Param name="nReps" val="5" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="startTrial"/>
+    <Routine name="trial"/>
+    <Routine name="feedback"/>
+    <Routine name="Blank"/>
+    <Routine name="endTrialMain"/>
+    <LoopTerminator name="ReDoLoopMain"/>
+    <LoopTerminator name="trials"/>
+    <Routine name="learningRest"/>
+    <LoopTerminator name="Blocks"/>
+    <Routine name="instrStopPrac"/>
+    <LoopInitiator loopType="TrialHandler" name="StopBlocks">
+      <Param name="conditionsFile" val="" valType="str" updates="None"/>
+      <Param name="name" val="StopBlocks" valType="code" updates="None"/>
+      <Param name="isTrials" val="False" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="sequential" valType="str" updates="None"/>
+      <Param name="nReps" val="8" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="stopBlockSetup"/>
+    <LoopInitiator loopType="TrialHandler" name="StopTrials">
+      <Param name="conditionsFile" val="trialtypeStop.xlsx" valType="str" updates="None"/>
+      <Param name="name" val="StopTrials" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="fullRandom" valType="str" updates="None"/>
+      <Param name="nReps" val="18" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="[{u'corrGoResp': u'z', u'yPosGoStim': 0, u'xPosGoStim': -200}, {u'corrGoResp': u'm', u'yPosGoStim': 0, u'xPosGoStim': 200}]" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="newStopStim"/>
+    <Routine name="StopTrial"/>
+    <Routine name="blankStop"/>
+    <Routine name="SSDChange"/>
+    <LoopTerminator name="StopTrials"/>
+    <Routine name="endOfStopBlockFeedback"/>
+    <LoopTerminator name="StopBlocks"/>
+    <Routine name="instrAuction"/>
+    <LoopInitiator loopType="TrialHandler" name="auctionBlocks">
+      <Param name="conditionsFile" val="" valType="str" updates="None"/>
+      <Param name="name" val="auctionBlocks" valType="code" updates="None"/>
+      <Param name="isTrials" val="False" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="random" valType="str" updates="None"/>
+      <Param name="nReps" val="4" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <LoopInitiator loopType="TrialHandler" name="auctionTrials">
+      <Param name="conditionsFile" val="" valType="str" updates="None"/>
+      <Param name="name" val="auctionTrials" valType="code" updates="None"/>
+      <Param name="isTrials" val="True" valType="bool" updates="None"/>
+      <Param name="random seed" val="" valType="code" updates="None"/>
+      <Param name="loopType" val="sequential" valType="str" updates="None"/>
+      <Param name="nReps" val="20" valType="code" updates="None"/>
+      <Param name="endPoints" val="[0, 1]" valType="num" updates="None"/>
+      <Param name="conditions" val="None" valType="str" updates="None"/>
+      <Param name="Selected rows" val="" valType="str" updates="None"/>
+    </LoopInitiator>
+    <Routine name="newAuctionStim"/>
+    <Routine name="auctionTrial"/>
+    <Routine name="auctionITI"/>
+    <LoopTerminator name="auctionTrials"/>
+    <Routine name="auctionBreak"/>
+    <LoopTerminator name="auctionBlocks"/>
+    <Routine name="rewardCalc"/>
+  </Flow>
+</PsychoPy2experiment>
